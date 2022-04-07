@@ -7,12 +7,19 @@
   "homepage": "./",
   "main": "./public/electron.js",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.1.3",
     "react": "^18.0.0",
+    "react-bootstrap": "^2.2.3",
     "react-dom": "^18.0.0",
+    "react-popper": "^2.2.5",
+    "react-redux": "^7.2.8",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "reactstrap": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -50,7 +57,10 @@
   "build": {
     "appId": "com.electron.myapp",
     "productName": "Latent Manager",
-    "files": ["build/**/*", "node_modules/**/*"],
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
     "directories": {
       "buildResources": "public"
     },
@@ -65,5 +75,3 @@
     }
   }
 }
-
-
