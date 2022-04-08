@@ -15,7 +15,7 @@ function Home() {
         
         
         <Link to="/add-new-case">
-            <Button>Add New Case</Button>
+            <Button size="lg" className="btn-color">Add New Case</Button>
         </Link>
       </div>
     );

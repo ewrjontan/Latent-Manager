@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #134074;
+  color: white;
 }
 
 code {
@@ -14,4 +16,31 @@ code {
 
 .navigation {
     height: 100vh;
+    background-color: #FFDC13;
+    width: 180px;
+}
+
+
+a {
+    color: #0B2545;
+    /*     color: #13315C; */
+    text-decoration: none;
+}
+
+.btn-color{
+    background-color: #FFFFFF;
+    color: #0B2545;
+    border: none;
+}
+
+.btn-color:hover {
+    background-color: #13315C;
+}
+
+/* input:active {
+    border: 2px solid yellow;
+} */
+
+.latent-table {
+    background-color: white;
 }

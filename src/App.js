@@ -12,14 +12,14 @@ import './App.css';
 function App() {
     return (
         <div className="App row">
-            <nav className="navigation col-2 d-flex flex-column text-start ps-5 bg-warning ">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/add-new-case">Add New Case</Link>
-                <Link to="/recent-cases">Recent Cases</Link>
+            <nav className="navigation d-flex flex-column text-start pt-5">
+                <Link className="ps-3" to="/">Home</Link>
+                <Link className="ps-3" to="/about">About</Link>
+                <Link className="ps-3" to="/add-new-case">Add New Case</Link>
+                <Link className="ps-3" to="/recent-cases">Recent Cases</Link>
             </nav>
 
-            <div className="col-10 text-start mt-5 px-5">
+            <div className="col text-start pt-5 px-5">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="about" element={<About />} />

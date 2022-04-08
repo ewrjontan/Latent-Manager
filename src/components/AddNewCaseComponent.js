@@ -27,7 +27,7 @@ function AddNewCase() {
                 </Form.Group>
             </Form>
 
-            <Button size="sm" className="col-12 col-md-6 mx-auto mt-5">Submit</Button>
+            <Button size="lg" className="col-12 col-md-6 mx-auto mt-5 btn-color">Submit</Button>
         </div>
         
     )
