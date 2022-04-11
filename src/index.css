@@ -43,4 +43,21 @@ a {
 
 .latent-table {
     background-color: white;
+    position: relative;
+}
+
+.view-latent-button {
+    color: white;
+    position: absolute;
+    left: -30px;
+}
+
+.back-icon {
+    color: white;
+    cursor: pointer;
+}
+
+.add-comparison-icon {
+    color: white;
+    cursor: pointer;
 }

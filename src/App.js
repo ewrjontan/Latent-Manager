@@ -3,6 +3,7 @@ import Home from "./components/HomeComponent";
 import AddNewCase from "./components/AddNewCaseComponent";
 import RecentCases from "./components/RecentCasesComponent";
 import DisplayCase from "./components/DisplayCaseComponent";
+import DisplayLatent from "./components/DisplayLatentComponent";
 
 
 
@@ -26,6 +27,8 @@ function App() {
                     <Route path="add-new-case" element={<AddNewCase />} />
                     <Route path="recent-cases" element={<RecentCases />} />
                     <Route path="display-case" element={<DisplayCase />} />
+                    <Route path="display-latent" element={<DisplayLatent />} />
+
 
                 </Routes>
             </div>
