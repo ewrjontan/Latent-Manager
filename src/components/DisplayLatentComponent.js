@@ -9,27 +9,34 @@ import {Form, Button} from "react-bootstrap";
 import ComparisonForm from "./ComparisonFormComponent";
 import DisplayComparison from "./DisplayComparisonComponent";
 
-function DisplayComparisons(comparisons) {
-    console.log("display comparisons");
-    console.log(comparisons.comparisons)
+// function DisplayComparisons(props) {
+//     console.log("display comparisons");
+//     //console.log(comparisons.comparisons)
+//     console.log(props);
 
-    if (comparisons.comparisons){
-        return (
-            comparisons.comparisons.map( (comparison, index) => {
-                console.log("comparison:")
-                console.log(comparison);
-                return (
-                    // <DisplayComparison key={index} state={{ test: "hello this is test" }}/>
-                    <DisplayComparison key={index} comparison={comparison}/>
-                )
-            })
+//     // if (comparisons.comparisons){
+//     //     return (
+//     //         comparisons.comparisons.map( (comparison, index) => {
+//     //             console.log("comparison:")
+//     //             console.log(comparison);
+//     //             return (
+//     //                 // <DisplayComparison key={index} state={{ test: "hello this is test" }}/>
+//     //                 <DisplayComparison key={index} comparison={comparison}/>
+//     //             )
+//     //         })
             
-        )
-    }else {
-        return <h4 className="mt-5 text-center">No comparisons have been performed.</h4>
-    }
+//     //     )
+
+//     if (props.comparisons){
+//         return (
+//             <DisplayComparison comparison={props.comparisons[props.index]}/>
+//         )
+//     }else {
+//         return <h4 className="mt-5 text-center">No comparisons have been performed.</h4>
+//     }
     
-}
+// }
+
 
 
 function DisplayLatent(){
@@ -39,8 +46,11 @@ function DisplayLatent(){
 
 
     const [comparisonCount, setComparisonCount] = useState(0);
+    const [comparisonIndex, setComparisonIndex] = useState(0);
+    const [comparisonPage, setcomparisonPage] = useState(1);
 
-    const [comparisonArray, setComparisonArray] = useState([]);
+
+    //const [comparisonArray, setComparisonArray] = useState([]);
 
 
     console.log(latent);
@@ -48,6 +58,7 @@ function DisplayLatent(){
     useEffect(() => {
         if (latent.comparisons) {
             setComparisonCount(latent.comparisons.length);
+            //setComparisonPage(0);
         }
         
     }, []);
@@ -60,13 +71,44 @@ function DisplayLatent(){
 
     const prevComparison = () => {
         console.log("Viewing Previous comparison");
-        const comparisonContainer = document.getElementById("comparison-container");
+        //const comparisonContainer = document.getElementById("comparison-container");
+        if (comparisonPage > 1){
+            setComparisonIndex(comparisonIndex - 1);
+            setcomparisonPage(comparisonPage - 1);
+        }
     }
 
     const nextComparison = () => {
         console.log("Viewing Next comparison");
-        const comparisonContainer = document.getElementById("comparison-container");
+        //const comparisonContainer = document.getElementById("comparison-container");
+        console.log(comparisonCount);
+
+        if (comparisonCount > comparisonPage ){
+            setComparisonIndex(comparisonIndex + 1);
+            setcomparisonPage(comparisonPage + 1);
+        }
     }
+
+    const ComparisonsHeader = () => {
+        if (latent.comparisons) {
+            return (
+                <h3>Comparisons (page {comparisonPage}/{comparisonCount})</h3>
+            )
+        }else {
+            return <h3>Comparisons</h3>
+        }
+    }
+
+    const DisplayComparisons = () => {
+        if (latent.comparisons){
+            return (
+                <DisplayComparison comparison={latent.comparisons[comparisonIndex]}/>
+            )
+        }else {
+            return <h4 className="mt-5 text-center">No comparisons have been performed.</h4>
+        }
+    }
+
 
 
 
@@ -111,7 +153,10 @@ function DisplayLatent(){
                 </Form>
             </div> */}
 
-            <h3>Comparisons ({comparisonCount})</h3>
+            {/* <h3>Comparisons (page {comparisonPage + 1}/{comparisonCount})</h3> */}
+
+            <ComparisonsHeader/>
+
             <div className="d-flex justify-content-between">
                 <h5><FontAwesomeIcon icon={faArrowLeft} className="back-icon" onClick={() => prevComparison()}/> Previous</h5>
 
@@ -123,8 +168,11 @@ function DisplayLatent(){
 
             <div className="" id="comparison-container">
 
-               <DisplayComparisons comparisons={latent.comparisons}/>
+               {/* <DisplayComparisons comparisons={latent.comparisons} index={comparisonPage}/> */}
                
+               <DisplayComparisons />
+
+
                {/* {latent.comparisons.map( (comparison, index) => {
                     console.log("comparison:")
                     console.log(comparison);
