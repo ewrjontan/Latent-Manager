@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #134074;
   color: white;
+  overflow-x: hidden;
 }
 
 code {
@@ -60,4 +61,8 @@ a {
 .add-comparison-icon {
     color: white;
     cursor: pointer;
+}
+
+.comparison-line {
+    border-top: 3px solid white;
 }

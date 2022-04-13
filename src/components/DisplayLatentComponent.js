@@ -92,7 +92,11 @@ function DisplayLatent(){
     const ComparisonsHeader = () => {
         if (latent.comparisons) {
             return (
-                <h3>Comparisons (page {comparisonPage}/{comparisonCount})</h3>
+                <div className="d-flex justify-content-between">
+                    <h3>Comparisons</h3>
+                    <h3>Page {comparisonPage}/{comparisonCount}</h3>
+                </div>
+                
             )
         }else {
             return <h3>Comparisons</h3>
@@ -155,14 +159,16 @@ function DisplayLatent(){
 
             {/* <h3>Comparisons (page {comparisonPage + 1}/{comparisonCount})</h3> */}
 
+            <div className="comparison-line my-3"></div>
+
             <ComparisonsHeader/>
 
-            <div className="d-flex justify-content-between">
-                <h5><FontAwesomeIcon icon={faArrowLeft} className="back-icon" onClick={() => prevComparison()}/> Previous</h5>
+            <div className="d-flex justify-content-between my-3">
+                <h6><FontAwesomeIcon icon={faArrowLeft} className="back-icon" onClick={() => prevComparison()}/> Previous</h6>
 
-                <h5><FontAwesomeIcon icon={faCirclePlus} className="add-comparison-icon" onClick={() => addComparison()}/> Add Comparison</h5>
+                <h6><FontAwesomeIcon icon={faCirclePlus} className="add-comparison-icon" onClick={() => addComparison()}/> Add Comparison</h6>
                 
-                <h5>Next <FontAwesomeIcon icon={faArrowRight} className="back-icon" onClick={() => nextComparison()}/></h5>
+                <h6>Next <FontAwesomeIcon icon={faArrowRight} className="back-icon" onClick={() => nextComparison()}/></h6>
                 
             </div>
 
