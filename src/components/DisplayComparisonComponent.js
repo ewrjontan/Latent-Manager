@@ -25,60 +25,40 @@ function DisplayComparison(props) {
         "verifiedBy": null,
         "dateOfComparison":null
         
-    })
+    });
 
     useEffect(() => {
+        
         if (props.comparison) {
 
             let comparison = props.comparison
 
-            // setLastName(comparison.lastName);
-            // setFirstName(comparison.firstName);
-            // setDateOfBirth(comparison.dateOfBirth);
-            // setAfisNumber(comparison.afisNumber);
-            // setFbiNumber(comparison.fbiNumber);
-            // setConclusion(comparison.conclusion);
-            // setComparedBy(comparison.comparedBy);
-            // setVerifiedBy(comparison.verifiedBy);
-            // setDateOfComparison(comparison.dateOfComparison);
-
-            console.log("props.comparison");
-            console.log(comparison);
-
             //this works
             setState({
-                
-                "lastName": comparison.lastName
+                ...state,
+                "lastName": comparison.lastName,
+                "firstName": comparison.firstName,
+                "dateOfBirth": comparison.dateOfBirth,
+                "afisNumber": comparison.afisNumber,
+                "fbiNumber": comparison.fbiNumber,
+                "conclusion": comparison.conclusion,
+                "comparedBy": comparison.comparedBy,
+                "verifiedBy": comparison.verifiedBy,
+                "dateOfComparison": comparison.dateOfComparison,
             });
 
-            // for (let key in comparison) {
-            //     if (comparison.hasOwnProperty(key)) {
-            //         console.log("key: " + key)
-            //         console.log("comparison-key: " + comparison[key]);
-
-            //         setState({
-            //             ...state,
-            //             [key]: comparison[key]
-            //         });
-            //     }
-            // }
-
-            console.log("state");
-            console.log(state);
-            //setState({ firstName: evt.target.value });
         }
         
     }, []);
 
-    console.log("display comparison component:");
-    const comparison = props.comparison;
-    console.log(comparison);
 
     const editButtonClick = () => {
         console.log("edit button clicked");
         
         let formInputs = document.querySelectorAll('input');
+        let formSelect = document.querySelectorAll('select');
         console.log(formInputs);
+        console.log(formSelect);
 
         formInputs.forEach((input) => {
             if (input.hasAttribute('readOnly')){
@@ -87,26 +67,33 @@ function DisplayComparison(props) {
             }
 
             if (input.hasAttribute('disabled')){
-                console.log("has read only")
+                console.log("has disabled")
                 input.disabled = false;
             }
-            //box.setAttribute('id', `box-${index}`);
-          });
+        });
+
+        formSelect.forEach((select) => {
+            if (select.hasAttribute('disabled')){
+                console.log("has disabled")
+                select.disabled = false;
+            }
+        });
+
+
+
     }
 
     const handleChange = (event) => {
-        //this.setState({value: event.target.value});
         console.log("change occuring");
-        console.log(event.target.id);
-        //setLastName(event.target.value);
+        console.log(event.target.name);
 
-        let inputId = event.target.id
+        let name = event.target.id
         let value = event.target.value
 
-        // if (formIdsForSettingState.hasOwnProperty(inputId)){
-        //     console.log("found id");
-        //     formIdsForSettingState.inputId(value);
-        // }
+        setState({
+            ...state,
+            [name]: value
+        });
       }
 
     return (
@@ -114,32 +101,34 @@ function DisplayComparison(props) {
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="lastName">
                     <Form.Label>Subject Last Name</Form.Label>
-                    <Form.Control type="text" placeholder="Last Name" required readOnly value={state.lastName} onChange={handleChange}/>
+                    <Form.Control type="text" name="lastName" placeholder="Last Name" required readOnly value={state.lastName} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="firstName">
                     <Form.Label>Subject First Name</Form.Label>
-                    <Form.Control type="text" placeholder="First Name" required readOnly value={state.firstName}/>
+                    <Form.Control type="text" name="firstName" placeholder="First Name" required readOnly value={state.firstName} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfBirth">
                     <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control type="date" required readOnly value={state.dateOfBirth}/>
+                    <Form.Control type="date" name="date" required readOnly value={state.dateOfBirth} onChange={handleChange}/>
                 </Form.Group>
             </div>
             
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="afisNumber">
                     <Form.Label>AFIS Number (if applicable)</Form.Label>
-                    <Form.Control type="text" placeholder="AFIS Number"  readOnly value={state.afisNumber}/>
+                    <Form.Control type="text" name="afisNumber" placeholder="AFIS Number"  readOnly value={state.afisNumber} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="fbiNumber">
                     <Form.Label>FBI Number (if applicable)</Form.Label>
-                    <Form.Control type="text" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "NA")}/>
+                    <Form.Control type="text" name="fbiNumber" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "NA")} onChange={handleChange}/>
                 </Form.Group>
 
                 <Form.Group className="col-4" controlId="conclusion">
                     <Form.Label>Conclusion</Form.Label>
-                    <Form.Select aria-label="Select a Conclusion" disabled >
-                        <option value="0" >{state.conclusion}</option>
+                    <Form.Select aria-label="Select a Conclusion" name="conclusion" value={state.conclusion} disabled onChange={handleChange}>
+                        <option value="0" >Exclusion</option>
+                        <option value="1" >Identified</option>
+                        <option value="2" >Inconclusive</option>
                     </Form.Select>
                 </Form.Group>
                 
@@ -148,15 +137,15 @@ function DisplayComparison(props) {
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="comparedBy">
                     <Form.Label>Compared By</Form.Label>
-                    <Form.Control type="text" placeholder="Compared By" required readOnly value={state.comparedBy}/>
+                    <Form.Control type="text" name="comparedBy" placeholder="Compared By" required readOnly value={state.comparedBy} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="verifiedBy">
                     <Form.Label>Verified By</Form.Label>
-                    <Form.Control type="text" placeholder="Verified By" required readOnly value={state.verifiedBy}/>
+                    <Form.Control type="text" name="verifiedBy" placeholder="Verified By" required readOnly value={state.verifiedBy} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfComparison">
                     <Form.Label>Date of Comparison</Form.Label>
-                    <Form.Control type="date" required readOnly value={state.dateOfComparison}/>
+                    <Form.Control type="date" name="dateOfComparison" required readOnly value={state.dateOfComparison} onChange={handleChange}/>
                 </Form.Group>
             </div>
             

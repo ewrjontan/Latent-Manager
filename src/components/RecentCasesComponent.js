@@ -181,7 +181,7 @@ function RecentCases() {
                         return (
                             <div className="col-12 col-md-8 mb-3" key={index}>
                                 <Link to="/display-case" state={{ incident: incident }}>
-                                    <Button>{incident.caseNumber}</Button>
+                                    <Button className="btn-color">{incident.caseNumber}</Button>
                                 </Link>
                             </div>
                         )

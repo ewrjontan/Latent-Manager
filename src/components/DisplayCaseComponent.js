@@ -34,7 +34,7 @@ function DisplayCase() {
                 <p><strong>Date:</strong> {incident.dateOfIncident}</p>
             </div>
 
-            <Button size="lg" className="btn-color">Add Latent</Button>
+            <Button size="lg" className="btn-color">Add Print Case File</Button>
 
 
             <Table striped bordered hover size="sm" className="mt-5 latent-table">
