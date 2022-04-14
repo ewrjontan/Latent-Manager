@@ -19,8 +19,12 @@ code {
     height: 100vh;
     background-color: #FFDC13;
     width: 180px;
+    position: fixed;
 }
 
+.nav-placeholder {
+    width: 180px;
+}
 
 a {
     color: #0B2545;
@@ -28,7 +32,10 @@ a {
     text-decoration: none;
 }
 
-
+.loading-container {
+    position: relative;
+    top: 200px;
+}
 
 .btn-color{
     background-color: #FFFFFF;
@@ -38,6 +45,13 @@ a {
 
 .btn-color:hover {
     background-color: #13315C;
+}
+
+.btn-color:focus{
+    background-color: #FFFFFF;
+    color: #0B2545;
+    border: none;
+
 }
 
 /* input:active {
@@ -67,4 +81,13 @@ a {
 
 .comparison-line {
     border-top: 3px solid white;
+}
+
+.print-case-file-table {
+    width: 90%;
+    
+}
+
+.print-case-file-table td {
+    padding-bottom: 5px;
 }

@@ -20,6 +20,8 @@ function App() {
                 <Link className="ps-3" to="/recent-cases">Recent Cases</Link>
             </nav>
 
+            <div className="nav-placeholder"></div>
+
             <div className="col text-start pt-5 px-5">
                 <Routes>
                     <Route path="/" element={<Home />} />
