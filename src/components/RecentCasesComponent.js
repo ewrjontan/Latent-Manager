@@ -1,7 +1,9 @@
+import { baseUrl } from '../shared/baseUrl';
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./LoadingComponent";
+
 
 function RecentCases() {
     const [loading, setLoading] = useState(true);
@@ -9,13 +11,17 @@ function RecentCases() {
 
 
     const fetchIncidents = () => {
-        fetch("http://localhost:3001/incidents")
+        console.log(baseUrl);
+        // fetch("http://localhost:3001/incidents")
+        fetch(baseUrl + "incidents")
         .then(res => res.json())
         .then(result => {
                 setIncidents(result);
+                console.log(result);
         })
         .then( () => {
             setLoading(false);
+            
         })
         .catch(err => console.error(`Fetch problem: ${err.message}`) );
     }

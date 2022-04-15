@@ -4,6 +4,7 @@ import AddNewCase from "./components/AddNewCaseComponent";
 import RecentCases from "./components/RecentCasesComponent";
 import DisplayCase from "./components/DisplayCaseComponent";
 import DisplayLatent from "./components/DisplayLatentComponent";
+import DisplayPrintCaseFile from "./components/DisplayPrintCaseFileComponent";
 
 
 
@@ -30,6 +31,7 @@ function App() {
                     <Route path="recent-cases" element={<RecentCases />} />
                     <Route path="display-case" element={<DisplayCase />} />
                     <Route path="display-latent" element={<DisplayLatent />} />
+                    <Route path="display-print-case-file" element={<DisplayPrintCaseFile />} />
 
 
                 </Routes>

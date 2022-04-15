@@ -15,15 +15,15 @@ function DisplayComparison(props) {
 
 
     const [state, setState] = useState({
-        "lastName": null,
-        "firstName": null,
-        "dateOfBirth": null,
-        "afisNumber": null,
-        "fbiNumber": null,
-        "conclusion": null,
-        "comparedBy": null,
-        "verifiedBy": null,
-        "dateOfComparison":null
+        "lastName": "",
+        "firstName": "",
+        "dateOfBirth": "",
+        "afisNumber": "",
+        "fbiNumber": "",
+        "conclusion": "",
+        "comparedBy": "",
+        "verifiedBy": "",
+        "dateOfComparison":""
         
     });
 
@@ -94,7 +94,11 @@ function DisplayComparison(props) {
             ...state,
             [name]: value
         });
-      }
+    }
+
+    const saveButtonClick = () => {
+        console.log("latent saved")
+    }
 
     return (
         <Form>
@@ -155,8 +159,7 @@ function DisplayComparison(props) {
 
                 <Button className="btn-color col-2" onClick={() => editButtonClick()} >Edit</Button>
 
-
-                <Button className="btn-color col-2" type="submit">Save</Button>
+                <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button>
             </div>
         </Form>
 
