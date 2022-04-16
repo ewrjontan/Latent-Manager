@@ -15,10 +15,13 @@ function DisplaySearchResults() {
     const [loading, setLoading] = useState(true);
     const [incidents, setIncidents] = useState(null);
 
+    console.log("displaying search results page");
+    console.log(searchInput);
 
 
 
-    const fetchIncidents = () => {
+
+    const fetchIncidents = (searchInput) => {
         console.log(baseUrl);
         // fetch("http://localhost:3001/incidents")
         fetch(baseUrl + "incidents?caseNumber=" + searchInput)
@@ -35,8 +38,12 @@ function DisplaySearchResults() {
     }
 
     useEffect(() => {
-        fetchIncidents();
-    }, []);
+        if (!loading){
+            setLoading(true);
+        }
+
+        fetchIncidents(searchInput);
+    }, [searchInput]);
 
 
     if (loading){
