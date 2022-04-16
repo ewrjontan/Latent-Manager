@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {Table, Button} from "react-bootstrap";
+import {Table, Button, Form} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,16 +8,14 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
+import PrintCaseFileTable from "./subComponents/DisplayPrintCaseFileTableComponent";
+
 function DisplayCase() {
     const navigate = useNavigate();
     const location = useLocation()
     const { incident } = location.state
 
     const [printCaseFileCount, setprintCaseFileCount] = useState(0);
-
-
-
-
 
     console.log(incident.printCaseFiles);
 
@@ -28,32 +26,6 @@ function DisplayCase() {
         }
         
     }, []);
-
-    const PrintCaseFileTable = () => {
-        if (incident.printCaseFiles.length !== 0){
-            return (
-                <table className="print-case-file-table mx-auto">
-                        {incident.printCaseFiles.map((printCaseFile, index)=> {
-                            return(
-                                <tr key={index}>
-                                    <td><h6>Safe item: {printCaseFile.safeItemNumber}</h6></td>
-                                    <td><h6>Lifts: {printCaseFile.lifts.length}</h6></td>
-                                    <td><h6>Latents: {printCaseFile.latents.length}</h6></td>
-                                    <td><Link key={index} to="/display-print-case-file" state={{ printCaseFile: printCaseFile}} className="w-25">
-                                        <Button className="btn-color w-100" size="sm">View</Button>
-                                    </Link></td>
-                                    {/* <Link className="view-latent-button" to="/display-latent" state={{ latent: latent, incident: incident.caseNumber, incidentType: incident.incidentType }}><FontAwesomeIcon icon={faCirclePlus} /></Link> */}
-                                </tr>
-                            )
-                        })}
-                    </table>
-            )
-        }else {
-            return (
-                <h5 className="text-center">No Print Case Files Available.</h5>
-            )
-        }
-    }
 
     const LatentTable = () => {
         if (incident.printCaseFiles.length !== 0){
@@ -151,7 +123,15 @@ function DisplayCase() {
 
     return (
         <div>
-            <h3><FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} className="back-icon"/> Back</h3>
+            <div className="d-flex justify-content-between">
+                <h3 className="col-3"><FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} className="back-icon"/> Back</h3>
+
+                <Form className="col-3">
+                  <Form.Group className="" controlId="searchInput">
+                      <Form.Control type="text" placeholder="Search" />
+                  </Form.Group>
+              </Form>
+            </div>
 
             <div className="row">
                 <div className="col-6">
@@ -163,7 +143,7 @@ function DisplayCase() {
                 <div className="col-6">
                     <h1 className="my-3 text-center">Print Case Files ({printCaseFileCount})</h1>
                     
-                    <PrintCaseFileTable/>
+                    <PrintCaseFileTable printCaseFiles={incident.printCaseFiles}/>
                 </div>
 
 

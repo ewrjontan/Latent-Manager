@@ -5,6 +5,8 @@ import RecentCases from "./components/RecentCasesComponent";
 import DisplayCase from "./components/DisplayCaseComponent";
 import DisplayLatent from "./components/DisplayLatentComponent";
 import DisplayPrintCaseFile from "./components/DisplayPrintCaseFileComponent";
+import {Form, Button} from "react-bootstrap";
+
 
 
 
@@ -19,6 +21,7 @@ function App() {
                 <Link className="ps-3" to="/about">About</Link>
                 <Link className="ps-3" to="/add-new-case">Add New Case</Link>
                 <Link className="ps-3" to="/recent-cases">Recent Cases</Link>
+                
             </nav>
 
             <div className="nav-placeholder"></div>
