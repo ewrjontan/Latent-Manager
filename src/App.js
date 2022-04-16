@@ -5,7 +5,10 @@ import RecentCases from "./components/RecentCasesComponent";
 import DisplayCase from "./components/DisplayCaseComponent";
 import DisplayLatent from "./components/DisplayLatentComponent";
 import DisplayPrintCaseFile from "./components/DisplayPrintCaseFileComponent";
-import {Form, Button} from "react-bootstrap";
+import DisplaySearchResults from "./components/DisplaySearchResultsComponent";
+
+
+import {Form, Button, InputGroup, FormControl} from "react-bootstrap";
 
 
 
@@ -14,6 +17,7 @@ import './App.css';
 
 
 function App() {
+
     return (
         <div className="App row">
             <nav className="navigation d-flex flex-column text-start pt-5">
@@ -21,7 +25,16 @@ function App() {
                 <Link className="ps-3" to="/about">About</Link>
                 <Link className="ps-3" to="/add-new-case">Add New Case</Link>
                 <Link className="ps-3" to="/recent-cases">Recent Cases</Link>
-                
+
+                <Link className="ps-3" to="/recent-cases">Find Case</Link>
+
+                {/* <Form className="mt-5 col-11 ps-3">
+                    <Form.Group className="" controlId="searchInput">
+                        <Form.Control type="text" placeholder="Find Case" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">Search</Button>
+                </Form> */}
+
             </nav>
 
             <div className="nav-placeholder"></div>
@@ -35,7 +48,7 @@ function App() {
                     <Route path="display-case" element={<DisplayCase />} />
                     <Route path="display-latent" element={<DisplayLatent />} />
                     <Route path="display-print-case-file" element={<DisplayPrintCaseFile />} />
-
+                    <Route path="display-search-results" element={<DisplaySearchResults />} />
 
                 </Routes>
             </div>

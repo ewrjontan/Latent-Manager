@@ -9,13 +9,14 @@
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
         {
-            "id": 0,
+          "id": 0,
           "safeItemNumber": 3,
           "complete": false,
           "technician": "Klemme D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 1,
               "value": true,
@@ -25,6 +26,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 2,
               "value": true,
@@ -34,6 +36,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 3,
               "value": true,
@@ -43,6 +46,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -54,6 +58,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 1,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -68,6 +73,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -82,6 +88,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -98,6 +105,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 2,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -113,6 +121,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 3,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -130,12 +139,14 @@
           ]
         },
         {
+          "id": 1,
           "safeItemNumber": 23,
           "complete": false,
           "technician": "DELLOBEENO D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 4,
               "value": true,
@@ -145,6 +156,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 5,
               "value": true,
@@ -154,6 +166,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 6,
               "value": true,
@@ -163,6 +176,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -174,6 +188,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 4,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -188,6 +203,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -202,6 +218,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -218,6 +235,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 5,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -233,6 +251,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 6,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -260,12 +279,14 @@
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
         {
+          "id": 0,
           "safeItemNumber": 3,
           "complete": false,
           "technician": "Klemme D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 1,
               "value": true,
@@ -275,6 +296,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 2,
               "value": true,
@@ -284,6 +306,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 3,
               "value": true,
@@ -293,6 +316,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -304,6 +328,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 1,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -318,6 +343,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -332,6 +358,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -348,6 +375,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 2,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -363,6 +391,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 3,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -380,12 +409,14 @@
           ]
         },
         {
+          "id": 1,
           "safeItemNumber": 23,
           "complete": false,
           "technician": "DELLOBEENO D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 4,
               "value": true,
@@ -395,6 +426,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 5,
               "value": true,
@@ -404,6 +436,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 6,
               "value": true,
@@ -413,6 +446,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -424,6 +458,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 4,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -438,6 +473,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -452,6 +488,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -468,6 +505,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 5,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -483,6 +521,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 6,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -510,12 +549,14 @@
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
         {
+          "id": 0,
           "safeItemNumber": 3,
           "complete": false,
           "technician": "Klemme D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 1,
               "value": true,
@@ -525,6 +566,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 2,
               "value": true,
@@ -534,6 +576,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 3,
               "value": true,
@@ -543,6 +586,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -554,6 +598,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 1,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -568,6 +613,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -582,6 +628,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -598,6 +645,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 2,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -613,6 +661,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 3,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -630,12 +679,14 @@
           ]
         },
         {
+          "id": 1,
           "safeItemNumber": 23,
           "complete": false,
           "technician": "DELLOBEENO D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 4,
               "value": true,
@@ -645,6 +696,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 5,
               "value": true,
@@ -654,6 +706,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 6,
               "value": true,
@@ -663,6 +716,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -674,6 +728,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 4,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -688,6 +743,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -702,6 +758,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -718,6 +775,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 5,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -733,6 +791,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 6,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -760,12 +819,14 @@
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
         {
+          "id": 0,
           "safeItemNumber": 3,
           "complete": false,
           "technician": "Klemme D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 1,
               "value": true,
@@ -775,6 +836,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 2,
               "value": true,
@@ -784,6 +846,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 3,
               "value": true,
@@ -793,6 +856,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -804,6 +868,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 1,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -818,6 +883,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -832,6 +898,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -848,6 +915,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 2,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -863,6 +931,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 3,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",
@@ -880,12 +949,14 @@
           ]
         },
         {
+          "id": 1,
           "safeItemNumber": 23,
           "complete": false,
           "technician": "DELLOBEENO D105",
           "dateStarted": "2021-05-22",
           "lifts": [
             {
+              "id": 0,
               "liftNumber": 1,
               "elNumber": 4,
               "value": true,
@@ -895,6 +966,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 1,
               "liftNumber": 2,
               "elNumber": 5,
               "value": true,
@@ -904,6 +976,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 2,
               "liftNumber": 3,
               "elNumber": 6,
               "value": true,
@@ -913,6 +986,7 @@
               "liftImage": "../public/images/latentLift.jpeg"
             },
             {
+              "id": 3,
               "liftNumber": 4,
               "elNumber": null,
               "value": false,
@@ -924,6 +998,7 @@
           ],
           "latents": [
             {
+              "id": 0,
               "elNumber": 4,
               "liftNumber": 1,
               "locationFound": "2828 97 ST",
@@ -938,6 +1013,7 @@
               "latentImage": "../public/images/latentLift.jpeg",
               "comparisons": [
                 {
+                  "id": 0,
                   "lastName": "SMITH",
                   "firstName": "John",
                   "dateOfBirth": "1922-05-22",
@@ -952,6 +1028,7 @@
                   "latentComparisonImage3": "../public/images/latentLift.jpeg"
                 },
                 {
+                  "id": 1,
                   "lastName": "MICHARNOR",
                   "firstName": "Michaeil",
                   "dateOfBirth": "1922-05-22",
@@ -968,6 +1045,7 @@
               ]
             },
             {
+              "id": 1,
               "elNumber": 5,
               "liftNumber": 2,
               "locationFound": "2828 97 ST",
@@ -983,6 +1061,7 @@
               "comparisons": null
             },
             {
+              "id": 2,
               "elNumber": 6,
               "liftNumber": 3,
               "locationFound": "2828 97 ST",

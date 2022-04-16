@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {Table, Button, Form} from "react-bootstrap";
+import {Table, Button, Form, InputGroup, FormControl} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 import PrintCaseFileTable from "./subComponents/DisplayPrintCaseFileTableComponent";
+import TopNavigation from "./subComponents/TopNavigationComponent";
 
 function DisplayCase() {
     const navigate = useNavigate();
@@ -123,15 +124,18 @@ function DisplayCase() {
 
     return (
         <div>
-            <div className="d-flex justify-content-between">
+            {/* <div className="d-flex justify-content-between">
                 <h3 className="col-3"><FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} className="back-icon"/> Back</h3>
 
-                <Form className="col-3">
-                  <Form.Group className="" controlId="searchInput">
-                      <Form.Control type="text" placeholder="Search" />
-                  </Form.Group>
-              </Form>
-            </div>
+                <div className="bg-primary col-3">
+                    <InputGroup>
+                        <FormControl placeholder="Search" aria-label="Search Input"/>
+                        <Button variant="warning" id="button-addon2">s</Button>
+                    </InputGroup>
+                </div>
+            </div> */}
+
+            <TopNavigation />
 
             <div className="row">
                 <div className="col-6">

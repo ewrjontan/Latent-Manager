@@ -51,7 +51,10 @@ a {
     background-color: #FFFFFF;
     color: #0B2545;
     border: none;
+}
 
+.btn-search {
+    background-color: #FFDC13;
 }
 
 /* input:active {
