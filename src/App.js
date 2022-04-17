@@ -6,6 +6,7 @@ import DisplayCase from "./components/DisplayCaseComponent";
 import DisplayLatent from "./components/DisplayLatentComponent";
 import DisplayPrintCaseFile from "./components/DisplayPrintCaseFileComponent";
 import DisplaySearchResults from "./components/DisplaySearchResultsComponent";
+import FindCase from "./components/FindCaseComponent";
 
 
 import {Form, Button, InputGroup, FormControl} from "react-bootstrap";
@@ -26,7 +27,7 @@ function App() {
                 <Link className="ps-3" to="/add-new-case">Add New Case</Link>
                 <Link className="ps-3" to="/recent-cases">Recent Cases</Link>
 
-                <Link className="ps-3" to="/recent-cases">Find Case</Link>
+                <Link className="ps-3" to="/find-case">Find Case</Link>
 
                 {/* <Form className="mt-5 col-11 ps-3">
                     <Form.Group className="" controlId="searchInput">
@@ -49,6 +50,7 @@ function App() {
                     <Route path="display-latent" element={<DisplayLatent />} />
                     <Route path="display-print-case-file" element={<DisplayPrintCaseFile />} />
                     <Route path="display-search-results" element={<DisplaySearchResults />} />
+                    <Route path="find-case" element={<FindCase />} />
 
                 </Routes>
             </div>

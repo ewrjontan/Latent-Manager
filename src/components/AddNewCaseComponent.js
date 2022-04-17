@@ -1,14 +1,15 @@
 import {Form, Button} from "react-bootstrap";
-
+import TopNavigation from "./subComponents/TopNavigationComponent";
 
 function AddNewCase() {
     return(
-        <div className="text-center">
-            <h1>Adding a new case</h1>
+        <div>
+            <TopNavigation />
+            <h1 className="text-center">Adding a new case</h1>
 
-            <h3 className="my-5">Let's begin by entering your case information.</h3>
+            <h3 className="my-5 text-center">Please enter your case information.</h3>
 
-            <Form>
+            <Form className="mx-auto text-center">
                 <Form.Group className="mb-3 col-12 col-md-6 mx-auto" controlId="addNewCase.firstName">
                     <Form.Label>Case Number</Form.Label>
                     <Form.Control type="text" placeholder="Case Number" />
@@ -25,9 +26,10 @@ function AddNewCase() {
                     <Form.Label>Date of Incident</Form.Label>
                     <Form.Control type="date"/>
                 </Form.Group>
+                <Button size="lg" className="col-12 col-md-6 mx-auto mt-5 btn-color">Submit</Button>
             </Form>
 
-            <Button size="lg" className="col-12 col-md-6 mx-auto mt-5 btn-color">Submit</Button>
+            
         </div>
         
     )

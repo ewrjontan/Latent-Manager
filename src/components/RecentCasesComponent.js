@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./LoadingComponent";
+import TopNavigation from "./subComponents/TopNavigationComponent";
 
 
 function RecentCases() {
@@ -36,6 +37,7 @@ function RecentCases() {
     }else {
         return (
             <div>
+                <TopNavigation />
                 <h1>Select a Case</h1>
                 
                 <div className="row d-flex flex-column mt-5">

@@ -76,7 +76,7 @@ function DisplaySearchResults() {
                 <TopNavigation />
 
                 <div className="mx-auto text-center mt-5">
-                    <h1 className="pt-5 text-center">No results were found for <em>{searchInput}</em></h1>
+                    <h1 className="pt-5 text-center">{searchInput != "" ? `No results were found for ${searchInput}.` : `Search field was blank.`} </h1>
                     <h2>Please enter a valid case number.</h2>
                 </div>
                 

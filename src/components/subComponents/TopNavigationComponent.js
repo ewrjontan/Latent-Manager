@@ -16,6 +16,13 @@ function TopNavigation() {
         setSearchInput(value);
     }
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          console.log('enter key pressed')
+          navigate("/display-search-results", {state: {searchInput: searchInput.toUpperCase()}});
+        }
+      }
+
     return (
         <div className="d-flex justify-content-between">
             <h3 className="col-3"><FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} className="back-icon"/> Back</h3>
@@ -28,7 +35,7 @@ function TopNavigation() {
 
             <div className="col-3">
                 <InputGroup>
-                    <FormControl placeholder="Find Case" name="searchInput" aria-label="Search Input" value={searchInput} onChange={handleChange}/>
+                    <FormControl placeholder="Find Case" name="searchInput" aria-label="Search Input" value={searchInput} onChange={handleChange} onKeyDown={handleKeyDown}/>
                     <Link to="/display-search-results" state={{searchInput: searchInput.toUpperCase() }}><Button variant="" className="btn-search" id="button-addon2"><FontAwesomeIcon icon={faMagnifyingGlass} className="back-icon"/></Button></Link>
                 </InputGroup>
             </div>

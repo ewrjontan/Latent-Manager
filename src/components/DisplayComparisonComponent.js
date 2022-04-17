@@ -87,7 +87,7 @@ function DisplayComparison(props) {
         console.log("change occuring");
         console.log(event.target.name);
 
-        let name = event.target.id
+        let name = event.target.name
         let value = event.target.value
 
         setState({
@@ -113,7 +113,7 @@ function DisplayComparison(props) {
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfBirth">
                     <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control type="date" name="date" required readOnly value={state.dateOfBirth} onChange={handleChange}/>
+                    <Form.Control type="date" name="dateOfBirth" required readOnly value={state.dateOfBirth} onChange={handleChange}/>
                 </Form.Group>
             </div>
             

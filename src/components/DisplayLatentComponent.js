@@ -5,7 +5,7 @@ import { faArrowLeft, faCirclePlus, faArrowRight } from '@fortawesome/free-solid
 import {Form, Button} from "react-bootstrap";
 
 
-
+import TopNavigation from "./subComponents/TopNavigationComponent";
 import ComparisonForm from "./ComparisonFormComponent";
 import DisplayComparison from "./DisplayComparisonComponent";
 
@@ -119,7 +119,7 @@ function DisplayLatent(){
     return (
         <div>
             {/* <Link className="back-icon" to="/display-case" state={{ latent: latent, incident: incident.caseNumber }}><FontAwesomeIcon icon={faArrowLeft} /> Back</Link> */}
-            <h3><FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} className="back-icon"/> Back</h3>
+            <TopNavigation/>
             
             <h1 className="mt-5">{incident} - EL{latent.elNumber} ({(latent.identified ? "Identified" : "Not Identified")})</h1>
 
