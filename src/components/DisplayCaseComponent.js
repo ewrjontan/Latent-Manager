@@ -140,7 +140,7 @@ function DisplayCase() {
             <div className="row">
                 <div className="col-6">
                     <h1 className="my-3">{incident.caseNumber}</h1>
-                    <p><strong>Victim:</strong> {incident.victimName}</p>
+                    <p><strong>Victim:</strong> {incident.victimFirstName} {incident.victimLastName}</p>
                     <p><strong>Location:</strong> {incident.incidentLocation}</p>
                     <p><strong>Date:</strong> {incident.dateOfIncident}</p>
                 </div>

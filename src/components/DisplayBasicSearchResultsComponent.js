@@ -8,7 +8,7 @@ import TopNavigation from "./subComponents/TopNavigationComponent";
 
 
 
-function DisplaySearchResults() {
+function DisplayBasicSearchResults() {
     const location = useLocation()
     const { searchInput } = location.state
 
@@ -86,4 +86,4 @@ function DisplaySearchResults() {
     }
 }
 
-export default DisplaySearchResults;
+export default DisplayBasicSearchResults;

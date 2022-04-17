@@ -19,7 +19,7 @@ function TopNavigation() {
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
           console.log('enter key pressed')
-          navigate("/display-search-results", {state: {searchInput: searchInput.toUpperCase()}});
+          navigate("/display-basic-search-results", {state: {searchInput: searchInput.toUpperCase()}});
         }
       }
 
@@ -35,8 +35,8 @@ function TopNavigation() {
 
             <div className="col-3">
                 <InputGroup>
-                    <FormControl placeholder="Find Case" name="searchInput" aria-label="Search Input" value={searchInput} onChange={handleChange} onKeyDown={handleKeyDown}/>
-                    <Link to="/display-search-results" state={{searchInput: searchInput.toUpperCase() }}><Button variant="" className="btn-search" id="button-addon2"><FontAwesomeIcon icon={faMagnifyingGlass} className="back-icon"/></Button></Link>
+                    <FormControl placeholder="Find case by number" name="searchInput" aria-label="Search Input" value={searchInput} onChange={handleChange} onKeyDown={handleKeyDown}/>
+                    <Link to="/display-case-search-results" state={{searchInput: searchInput.toUpperCase() }}><Button variant="" className="btn-search" id="button-addon2"><FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"/></Button></Link>
                 </InputGroup>
             </div>
         </div>

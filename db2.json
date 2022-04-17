@@ -3,8 +3,9 @@
     {
       "id": 0,
       "caseNumber": "AR53290",
-      "victimName": "Jon Doe",
-      "incidentType": "Burglary",
+      "victimFirstName": "Jon",
+      "victimLastName": "Doe",
+      "incidentType": "burglary",
       "incidentLocation": "2828 Ninety-seven ST",
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
@@ -273,8 +274,9 @@
     {
       "id": 1,
       "caseNumber": "AR45550",
-      "victimName": "Jon Doe",
-      "incidentType": "Robbery",
+      "victimFirstName": "Mary",
+      "victimLastName": "Smith",
+      "incidentType": "robbery",
       "incidentLocation": "2828 Ninety-seven ST",
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
@@ -543,8 +545,9 @@
     {
       "id": 2,
       "caseNumber": "AS34320",
-      "victimName": "Jon Doe",
-      "incidentType": "Felony Assault",
+      "victimFirstName": "Michael",
+      "victimLastName": "Scott",
+      "incidentType": "felony assault",
       "incidentLocation": "2828 Ninety-seven ST",
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
@@ -813,9 +816,10 @@
     {
       "id": 3,
       "caseNumber": "AR45588",
-      "victimName": "Jon Doe",
-      "incidentType": "Robbery",
-      "incidentLocation": "2828 Ninety-seven ST",
+      "victimFirstName": "Jon",
+      "victimLastName": "Doe",
+      "incidentType": "felony assault",
+      "incidentLocation": "505 S 15 ST",
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": [
         {
@@ -1083,8 +1087,9 @@
     {
       "id": 4,
       "caseNumber": "AS39000",
-      "victimName": "Jon Monkey test",
-      "incidentType": "Felony Assault",
+      "victimFirstName": "Mary",
+      "victimLastName": "Smith",
+      "incidentType": "felony assault",
       "incidentLocation": "2828 Ninety-seven ST",
       "dateOfIncident": "1922-05-22",
       "printCaseFiles": []
