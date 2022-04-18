@@ -125,17 +125,33 @@ function DisplayLatent(){
             <TopNavigation/>
             
             
-            <div className="row d-flex justify-content-between mt-5">
-                <div className="col-9">
-                    <h1 className="">{incident} - EL{latent.elNumber} ({(latent.identified ? "Identified" : "Not Identified")})</h1>
+            <div className="row d-flex justify-content-between mt-3">
+                <div className="col">
 
-                    <DisplayLatentInfo latent={latent}/>
-                </div>
+                    <div className="row d-flex">
+                        <h1 className="col-8">{incident} - EL{latent.elNumber} ({(latent.identified ? "Identified" : "Not Identified")})</h1>
 
-                <div className="col-3 bg-white text-center">
-                    <img src={require("../images/latentPrint.jpg")} alt="Latent Image"/>
-                    {/* <img src={latent.latentImage}/> */}
+                        <div className="col-4 d-flex flex-row justify-content-between">
+                            <div>
+                                <strong>Date:</strong>
+                                <p>{latent.dateFound}</p>
+                            </div>
+    
+                            <div>
+                                <strong>Developed By:</strong>
+                                <p>{latent.developedBy}</p>
+                            </div>
+
+                            <div>
+                                <strong>Crime:</strong> 
+                                <p>{incidentType}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <DisplayLatentInfo latent={latent}/>
+
+                
             </div>
 
             

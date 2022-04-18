@@ -105,31 +105,31 @@ function DisplayComparison(props) {
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="lastName">
                     <Form.Label>Subject Last Name</Form.Label>
-                    <Form.Control type="text" name="lastName" placeholder="Last Name" required readOnly value={state.lastName} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="lastName" placeholder="Last Name" required readOnly value={state.lastName} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="firstName">
                     <Form.Label>Subject First Name</Form.Label>
-                    <Form.Control type="text" name="firstName" placeholder="First Name" required readOnly value={state.firstName} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="firstName" placeholder="First Name" required readOnly value={state.firstName} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfBirth">
                     <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control type="date" name="dateOfBirth" required readOnly value={state.dateOfBirth} onChange={handleChange}/>
+                    <Form.Control size="sm" type="date" name="dateOfBirth" required readOnly value={state.dateOfBirth} onChange={handleChange}/>
                 </Form.Group>
             </div>
             
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="afisNumber">
                     <Form.Label>AFIS Number (if applicable)</Form.Label>
-                    <Form.Control type="text" name="afisNumber" placeholder="AFIS Number"  readOnly value={state.afisNumber} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="afisNumber" placeholder="AFIS Number"  readOnly value={state.afisNumber} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="fbiNumber">
                     <Form.Label>FBI Number (if applicable)</Form.Label>
-                    <Form.Control type="text" name="fbiNumber" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "NA")} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="fbiNumber" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "NA")} onChange={handleChange}/>
                 </Form.Group>
 
                 <Form.Group className="col-4" controlId="conclusion">
                     <Form.Label>Conclusion</Form.Label>
-                    <Form.Select aria-label="Select a Conclusion" name="conclusion" value={state.conclusion} disabled onChange={handleChange}>
+                    <Form.Select size="sm" aria-label="Select a Conclusion" name="conclusion" value={state.conclusion} disabled onChange={handleChange}>
                         <option value="Exclusion" >Exclusion</option>
                         <option value="Identified" >Identified</option>
                         <option value="Inconclusive" >Inconclusive</option>
@@ -141,15 +141,15 @@ function DisplayComparison(props) {
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="comparedBy">
                     <Form.Label>Compared By</Form.Label>
-                    <Form.Control type="text" name="comparedBy" placeholder="Compared By" required readOnly value={state.comparedBy} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="comparedBy" placeholder="Compared By" required readOnly value={state.comparedBy} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="verifiedBy">
                     <Form.Label>Verified By</Form.Label>
-                    <Form.Control type="text" name="verifiedBy" placeholder="Verified By" required readOnly value={state.verifiedBy} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="verifiedBy" placeholder="Verified By" required readOnly value={state.verifiedBy} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfComparison">
                     <Form.Label>Date of Comparison</Form.Label>
-                    <Form.Control type="date" name="dateOfComparison" required readOnly value={state.dateOfComparison} onChange={handleChange}/>
+                    <Form.Control size="sm" type="date" name="dateOfComparison" required readOnly value={state.dateOfComparison} onChange={handleChange}/>
                 </Form.Group>
             </div>
             
