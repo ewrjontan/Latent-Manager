@@ -13,6 +13,7 @@ function DisplayComparison(props) {
     // const [verifiedBy, setVerifiedBy] = useState(null);
     // const [dateOfComparison, setDateOfComparison] = useState(null);
 
+    const[editComparison, setEditComparison] = useState(false);
 
     const [state, setState] = useState({
         "lastName": "",
@@ -54,9 +55,12 @@ function DisplayComparison(props) {
 
     const editButtonClick = () => {
         console.log("edit button clicked");
+        setEditComparison(true);
+
+        let comparisonsContainer = document.getElementById("comparisons-container");
         
-        let formInputs = document.querySelectorAll('input');
-        let formSelect = document.querySelectorAll('select');
+        let formInputs = comparisonsContainer.querySelectorAll('input');
+        let formSelect = comparisonsContainer.querySelectorAll('select');
         console.log(formInputs);
         console.log(formSelect);
 
@@ -78,9 +82,14 @@ function DisplayComparison(props) {
                 select.disabled = false;
             }
         });
+    }
 
+    const addButtonClick = () => {
+        console.log("add button clicked");
+    }
 
-
+    const viewButtonClick = () => {
+        console.log("view button clicked");
     }
 
     const handleChange = (event) => {
@@ -96,12 +105,15 @@ function DisplayComparison(props) {
         });
     }
 
-    const saveButtonClick = () => {
-        console.log("latent saved")
+    const saveButtonClick = (event) => {
+        console.log("latent saved");
+        console.log(event);
+        setEditComparison(false);
+
     }
 
     return (
-        <Form>
+        <Form id="comparisons-container">
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="lastName">
                     <Form.Label>Subject Last Name</Form.Label>
@@ -155,13 +167,15 @@ function DisplayComparison(props) {
             
             <div className="d-flex justify-content-between my-5">
 
-                <Button className="btn-color col-2">Delete</Button>
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison}>Delete</Button>
 
-                <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit Comparison</Button>
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => editButtonClick()}>Edit Comparison</Button>
 
-                <Button className="btn-color col-2" onClick={() => editButtonClick()}>View Comparison Image</Button>
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => addButtonClick()}>Add Comparison Image</Button>
 
-                <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button>
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => viewButtonClick()}>View Comparison Image</Button>
+
+                <Button className="btn-color col-2" variant="secondary" disabled={!editComparison} onClick={(event) => saveButtonClick(event)}>Save</Button>
             </div>
         </Form>
 

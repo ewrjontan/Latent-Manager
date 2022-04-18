@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 
 
 function DisplayLatentInfo(props) {
+    const[editLatentInfo, setEditLatentInfo] = useState(false);
 
     const [latent, setLatent] = useState({
         "dateFound": "",
@@ -81,21 +82,66 @@ function DisplayLatentInfo(props) {
         });
     }
 
+    const handleCheckBoxChange = (event) => {
+        console.log("change occuring");
+
+        let name = event.target.name
+
+        console.log(name);
+
+        setLatent({
+            ...latent,
+            [name]: !latent[name]
+        });
+    }
+
     const uploadButtonClick = () => {
         console.log("Upload images button click");
     }
 
     const downloadButtonClick = () => {
         console.log("download images button click");
+        console.log(editLatentInfo);
     }
 
     const editButtonClick = () => {
-        console.log("edit button click");
+        console.log("edit button clicked");
+        
+        //used to disable the disable attribute for the re-render of the fingerPalm component
+        setEditLatentInfo(true);
+
+        let latentInfoContainer = document.getElementById("latent-info-container");
+        
+        let formInputs = latentInfoContainer.querySelectorAll('input');
+        let formSelect = latentInfoContainer.querySelectorAll('select');
+        console.log(formInputs);
+        console.log(formSelect);
+
+        formInputs.forEach((input) => {
+            if (input.hasAttribute('readOnly')){
+                console.log("has read only")
+                input.readOnly = false;
+            }
+
+            if (input.hasAttribute('disabled')){
+                console.log("has disabled")
+                input.disabled = false;
+            }
+        });
+
+        formSelect.forEach((select) => {
+            if (select.hasAttribute('disabled')){
+                console.log("has disabled")
+                select.disabled = false;
+            }
+        });
     }
 
 
     const saveButtonClick = () => {
         console.log("save Info button click");
+        setEditLatentInfo(false);
+
     }
 
 
@@ -105,7 +151,7 @@ function DisplayLatentInfo(props) {
                 <Fragment>
                     <Form.Group className="col-2">
                         <Form.Label className="">Finger #</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" name="fingerNumber" aria-label="Finger Number" value={latent.fingerNumber} disabled onChange={handleChange}>
+                        <Form.Select size="sm" className="finger-select-dropdown" name="fingerNumber" aria-label="Finger Number" value={latent.fingerNumber} disabled={!editLatentInfo} onChange={handleChange}>
                             <option value="1">#1 R. Thumb</option>
                             <option value="2">#2 R. Index</option>
                             <option value="3">#3 R. Middle</option>
@@ -121,7 +167,7 @@ function DisplayLatentInfo(props) {
 
                     <Form.Group className="col-2">
                         <Form.Label className="">Finger Pattern</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" value={latent.pattern} disabled onChange={handleChange} aria-label="Select Pattern">
+                        <Form.Select size="sm" className="finger-select-dropdown" value={latent.pattern} disabled={!editLatentInfo} onChange={handleChange} name="pattern" aria-label="Select Pattern">
                             <option value="arch">Arch</option>
                             <option value="right loop">R. Loop</option>
                             <option value="left loop">L. Loop</option>
@@ -134,7 +180,7 @@ function DisplayLatentInfo(props) {
 
                     <Form.Group className="col-2">
                         <Form.Label className="">Pattern Ref.</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Finger Pattern Reference" value={(latent.reference ? latent.reference: "na")} disabled onChange={handleChange}>
+                        <Form.Select size="sm" className="finger-select-dropdown" name="reference" aria-label="Finger Pattern Reference" value={(latent.reference ? latent.reference: "na")} disabled={!editLatentInfo} onChange={handleChange}>
                             <option value="na">N/A</option>
                             <option value="arch">Arch</option>
                             <option value="right loop">R. Loop</option>
@@ -152,7 +198,7 @@ function DisplayLatentInfo(props) {
                 <Fragment>
                     <Form.Group className="col-3">
                         <Form.Label className="">Palm (L or R)</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Left or Right Palm" value={latent.palmLeftOrRight} disabled onChange={handleChange}>
+                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Left or Right Palm" value={latent.palmLeftOrRight} disabled={!editLatentInfo} onChange={handleChange}>
                             <option value="right">R. Palm</option>
                             <option value="left">L. Palm</option>
                         </Form.Select>
@@ -160,7 +206,7 @@ function DisplayLatentInfo(props) {
 
                     <Form.Group className="col-3">
                         <Form.Label className="">Palm Area</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Select Palm Area" value={latent.palmArea} disabled onChange={handleChange}>
+                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Select Palm Area" value={latent.palmArea} disabled={!editLatentInfo} onChange={handleChange}>
                             <option value="thenar">Thenar</option>
                             <option value="hypothenar">Hypothenar</option>
                             <option value="interdigital">Interdigital</option>
@@ -182,7 +228,7 @@ function DisplayLatentInfo(props) {
           
             {/* <p><strong>Crime:</strong> {incidentType}</p> */}
 
-            <Form className="text-center">
+            <Form className="text-center" id="latent-info-container">
                 <div className="row">
                     <div className="col-9 pe-4">
                         <div className="row mb-3 ">
@@ -197,6 +243,7 @@ function DisplayLatentInfo(props) {
                                         checked={latent.detailLevelOne}
                                         disabled
                                         id="detailLevelOne"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -206,6 +253,7 @@ function DisplayLatentInfo(props) {
                                         name="detailLevelTwo"
                                         type="checkbox"
                                         id="detailLevelTwo"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -215,6 +263,7 @@ function DisplayLatentInfo(props) {
                                         label="3"
                                         type="checkbox"
                                         id="detailLevelThree"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -224,6 +273,7 @@ function DisplayLatentInfo(props) {
                                         label="Core"
                                         type="checkbox"
                                         id="core"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -233,6 +283,7 @@ function DisplayLatentInfo(props) {
                                         label="Delta"
                                         type="checkbox"
                                         id="delta"
+                                        onChange={handleCheckBoxChange}
                                     />
                                 </div>
                             </Form.Group>
@@ -243,7 +294,7 @@ function DisplayLatentInfo(props) {
                         <div className="row mb-3">
                             <Form.Group className="col-3">
                                 <Form.Label>Processing Method</Form.Label>
-                                <Form.Select size="sm" className="" aria-label="Development Technique" value={latent.processingMethod} disabled onChange={handleChange}>
+                                <Form.Select size="sm" className="" aria-label="Development Technique" value={latent.processingMethod} name="processingMethod" disabled onChange={handleChange}>
                                     <option value="black powder">Black Powder</option>
                                     <option value="ninhydrin">Ninhydrin</option>
                                     <option value="cyanoacrylate">Cyanoacrylate</option>
@@ -280,6 +331,7 @@ function DisplayLatentInfo(props) {
                                         name="overlay"
                                         type="checkbox"
                                         id="distortionOverlay"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -289,6 +341,7 @@ function DisplayLatentInfo(props) {
                                         name="smear"
                                         type="checkbox"
                                         id="distortionSmear"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -298,6 +351,7 @@ function DisplayLatentInfo(props) {
                                         label="Reversal"
                                         type="checkbox"
                                         id="distortionReversal"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -307,6 +361,7 @@ function DisplayLatentInfo(props) {
                                         label="Pressure"
                                         type="checkbox"
                                         id="distortionPressure"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -316,6 +371,7 @@ function DisplayLatentInfo(props) {
                                         label="Creases"
                                         type="checkbox"
                                         id="distortionCreases"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -325,6 +381,7 @@ function DisplayLatentInfo(props) {
                                         label="Scars"
                                         type="checkbox"
                                         id="distortionScars"
+                                        onChange={handleCheckBoxChange}
                                     />
                                 </div>
                             </Form.Group>
@@ -338,10 +395,10 @@ function DisplayLatentInfo(props) {
                         <div className="d-flex justify-content-between mt-5">
                             {/* <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit</Button> */}
 
-                            <Button className="btn-color col-2" onClick={() => uploadButtonClick()}>Upload Images</Button>
-                            <Button className="btn-color col-2" onClick={() => downloadButtonClick()}>Download Images</Button>
-                            <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit Info</Button>
-                            <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button>
+                            <Button className="btn-color col-2" variant="secondary" disabled={editLatentInfo} onClick={() => uploadButtonClick()}>Upload Images</Button>
+                            <Button className="btn-color col-2" variant="secondary" disabled={editLatentInfo} onClick={() => downloadButtonClick()}>Download Images</Button>
+                            <Button className="btn-color col-2" variant="secondary" disabled={editLatentInfo} onClick={() => editButtonClick()}>Edit Info</Button>
+                            <Button className="btn-color col-2" variant="secondary" disabled={!editLatentInfo}  onClick={() => saveButtonClick()}>Save</Button>
                             {/* <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button> */}
                         </div>
                     </div>
@@ -400,6 +457,7 @@ function DisplayLatentInfo(props) {
                                         name="retainedInAfis"
                                         type="checkbox"
                                         id="retainedInAfisTrue"
+                                        onChange={handleCheckBoxChange}
                                     />
                                     <Form.Check
                                         inline
@@ -409,6 +467,7 @@ function DisplayLatentInfo(props) {
                                         name="retainedInAfis"
                                         type="checkbox"
                                         id="retainedInAfisFalse"
+                                        onChange={handleCheckBoxChange}
                                     />
                                 </div>
                             </Form.Group>

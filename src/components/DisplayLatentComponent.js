@@ -6,7 +6,7 @@ import {Form, Button} from "react-bootstrap";
 
 
 import TopNavigation from "./subComponents/TopNavigationComponent";
-import DisplayLatentInfo from "./subComponents/DisplayLatentInfoComponent";
+import DisplayLatentInfo from "./subComponents/LatentInfoComponent";
 import ComparisonForm from "./ComparisonFormComponent";
 import DisplayComparison from "./DisplayComparisonComponent";
 

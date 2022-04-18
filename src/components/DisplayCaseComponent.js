@@ -34,7 +34,7 @@ function DisplayCase() {
                 <div className="mt-4">
                     {incident.printCaseFiles.map( (printCaseFile, index) => {
                         return (
-                            <React.Fragment>
+                            <React.Fragment key={index}>
                                 <h3>Safe Item #{printCaseFile.safeItemNumber}</h3>
 
                                 <Table striped bordered hover size="sm" className="mt-3 latent-table">
