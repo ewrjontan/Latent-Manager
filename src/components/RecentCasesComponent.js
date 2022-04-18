@@ -14,7 +14,7 @@ function RecentCases() {
     const fetchIncidents = () => {
         console.log(baseUrl);
         // fetch("http://localhost:3001/incidents")
-        fetch(baseUrl + "incidents")
+        fetch(baseUrl)
         .then(res => res.json())
         .then(result => {
                 setIncidents(result);

@@ -21,7 +21,7 @@ function TopNavigation() {
           console.log('enter key pressed')
           navigate("/display-basic-search-results", {state: {searchInput: searchInput.toUpperCase()}});
         }
-      }
+    }
 
     return (
         <div className="d-flex justify-content-between">

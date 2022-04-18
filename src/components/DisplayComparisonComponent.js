@@ -130,9 +130,9 @@ function DisplayComparison(props) {
                 <Form.Group className="col-4" controlId="conclusion">
                     <Form.Label>Conclusion</Form.Label>
                     <Form.Select aria-label="Select a Conclusion" name="conclusion" value={state.conclusion} disabled onChange={handleChange}>
-                        <option value="0" >Exclusion</option>
-                        <option value="1" >Identified</option>
-                        <option value="2" >Inconclusive</option>
+                        <option value="Exclusion" >Exclusion</option>
+                        <option value="Identified" >Identified</option>
+                        <option value="Inconclusive" >Inconclusive</option>
                     </Form.Select>
                 </Form.Group>
                 
@@ -157,7 +157,9 @@ function DisplayComparison(props) {
 
                 <Button className="btn-color col-2">Delete</Button>
 
-                <Button className="btn-color col-2" onClick={() => editButtonClick()} >Edit</Button>
+                <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit</Button>
+
+                <Button className="btn-color col-2" onClick={() => editButtonClick()}>View Comparison Image</Button>
 
                 <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button>
             </div>

@@ -97,3 +97,9 @@ a {
 .print-case-file-table td {
     padding-bottom: 5px;
 }
+
+/* Display Latent Info Component */
+
+.finger-select-dropdown {
+    /* width: 60%; */
+}

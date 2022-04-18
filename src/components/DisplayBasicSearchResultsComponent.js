@@ -24,7 +24,7 @@ function DisplayBasicSearchResults() {
     const fetchIncidents = (searchInput) => {
         console.log(baseUrl);
         // fetch("http://localhost:3001/incidents")
-        fetch(baseUrl + "incidents?caseNumber=" + searchInput)
+        fetch(baseUrl + "?caseNumber=" + searchInput)
         .then(res => res.json())
         .then(result => {
                 setIncidents(result);
