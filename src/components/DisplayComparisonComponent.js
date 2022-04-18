@@ -52,27 +52,22 @@ function DisplayComparison(props) {
         
     }, []);
 
-
-    const editButtonClick = () => {
-        console.log("edit button clicked");
-        setEditComparison(true);
+    const enableDisableInputs = () => {
 
         let comparisonsContainer = document.getElementById("comparisons-container");
         
         let formInputs = comparisonsContainer.querySelectorAll('input');
         let formSelect = comparisonsContainer.querySelectorAll('select');
+
         console.log(formInputs);
         console.log(formSelect);
 
         formInputs.forEach((input) => {
-            if (input.hasAttribute('readOnly')){
-                console.log("has read only")
-                input.readOnly = false;
-            }
-
             if (input.hasAttribute('disabled')){
                 console.log("has disabled")
                 input.disabled = false;
+            }else {
+                input.disabled = true;
             }
         });
 
@@ -80,15 +75,49 @@ function DisplayComparison(props) {
             if (select.hasAttribute('disabled')){
                 console.log("has disabled")
                 select.disabled = false;
+            }else {
+                select.disabled = true;
+
             }
         });
     }
 
-    const addButtonClick = () => {
+    const editButtonClick = () => {
+        console.log("edit button clicked");
+        setEditComparison(true);
+        enableDisableInputs();
+        // let comparisonsContainer = document.getElementById("comparisons-container");
+        
+        // let formInputs = comparisonsContainer.querySelectorAll('input');
+        // let formSelect = comparisonsContainer.querySelectorAll('select');
+        // console.log(formInputs);
+        // console.log(formSelect);
+
+        // formInputs.forEach((input) => {
+        //     if (input.hasAttribute('readOnly')){
+        //         console.log("has read only")
+        //         input.readOnly = false;
+        //     }
+
+        //     if (input.hasAttribute('disabled')){
+        //         console.log("has disabled")
+        //         input.disabled = false;
+        //     }
+        // });
+
+        // formSelect.forEach((select) => {
+        //     if (select.hasAttribute('disabled')){
+        //         console.log("has disabled")
+        //         select.disabled = false;
+        //     }
+        // });
+    }
+
+    const addImageButtonClick = () => {
         console.log("add button clicked");
     }
 
-    const viewButtonClick = () => {
+    const viewImageButtonClick = () => {
         console.log("view button clicked");
     }
 
@@ -109,7 +138,11 @@ function DisplayComparison(props) {
         console.log("latent saved");
         console.log(event);
         setEditComparison(false);
+        enableDisableInputs();
+    }
 
+    const deleteButtonClick = () => {
+        console.log("delete buytton clicked")
     }
 
     return (
@@ -117,26 +150,26 @@ function DisplayComparison(props) {
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="lastName">
                     <Form.Label>Subject Last Name</Form.Label>
-                    <Form.Control size="sm" type="text" name="lastName" placeholder="Last Name" required readOnly value={state.lastName} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="lastName" placeholder="Last Name" required disabled value={state.lastName} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="firstName">
                     <Form.Label>Subject First Name</Form.Label>
-                    <Form.Control size="sm" type="text" name="firstName" placeholder="First Name" required readOnly value={state.firstName} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="firstName" placeholder="First Name" required disabled value={state.firstName} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfBirth">
                     <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control size="sm" type="date" name="dateOfBirth" required readOnly value={state.dateOfBirth} onChange={handleChange}/>
+                    <Form.Control size="sm" type="date" name="dateOfBirth" required disabled value={state.dateOfBirth} onChange={handleChange}/>
                 </Form.Group>
             </div>
             
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="afisNumber">
                     <Form.Label>AFIS Number (if applicable)</Form.Label>
-                    <Form.Control size="sm" type="text" name="afisNumber" placeholder="AFIS Number"  readOnly value={state.afisNumber} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="afisNumber" placeholder="AFIS Number"  disabled value={state.afisNumber} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="fbiNumber">
                     <Form.Label>FBI Number (if applicable)</Form.Label>
-                    <Form.Control size="sm" type="text" name="fbiNumber" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "N/A")} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="fbiNumber" placeholder="FBI Number"  disabled value={(state.fbiNumber ? state.fbiNumber: "N/A")} onChange={handleChange}/>
                 </Form.Group>
 
                 <Form.Group className="col-4" controlId="conclusion">
@@ -153,27 +186,27 @@ function DisplayComparison(props) {
             <div className="row mt-3">
                 <Form.Group className="col-4" controlId="comparedBy">
                     <Form.Label>Compared By</Form.Label>
-                    <Form.Control size="sm" type="text" name="comparedBy" placeholder="Compared By" required readOnly value={state.comparedBy} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="comparedBy" placeholder="Compared By" required disabled value={state.comparedBy} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="verifiedBy">
                     <Form.Label>Verified By</Form.Label>
-                    <Form.Control size="sm" type="text" name="verifiedBy" placeholder="Verified By" required readOnly value={state.verifiedBy} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="verifiedBy" placeholder="Verified By" required disabled value={state.verifiedBy} onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className="col-4" controlId="dateOfComparison">
                     <Form.Label>Date of Comparison</Form.Label>
-                    <Form.Control size="sm" type="date" name="dateOfComparison" required readOnly value={state.dateOfComparison} onChange={handleChange}/>
+                    <Form.Control size="sm" type="date" name="dateOfComparison" required disabled value={state.dateOfComparison} onChange={handleChange}/>
                 </Form.Group>
             </div>
             
             <div className="d-flex justify-content-between my-5">
 
-                <Button className="btn-color col-2" variant="secondary" disabled={editComparison}>Delete</Button>
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => deleteButtonClick()}>Delete</Button>
+
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => addImageButtonClick()}>Add Comparison Image</Button>
+
+                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => viewImageButtonClick()}>View Comparison Image</Button>
 
                 <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => editButtonClick()}>Edit Comparison</Button>
-
-                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => addButtonClick()}>Add Comparison Image</Button>
-
-                <Button className="btn-color col-2" variant="secondary" disabled={editComparison} onClick={() => viewButtonClick()}>View Comparison Image</Button>
 
                 <Button className="btn-color col-2" variant="secondary" disabled={!editComparison} onClick={(event) => saveButtonClick(event)}>Save</Button>
             </div>

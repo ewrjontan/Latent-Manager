@@ -95,6 +95,37 @@ function DisplayLatentInfo(props) {
         });
     }
 
+
+    const enableDisableInputs = () => {
+
+        let latentInfoContainer = document.getElementById("latent-info-container");
+        
+        let formInputs = latentInfoContainer.querySelectorAll('input');
+        let formSelect = latentInfoContainer.querySelectorAll('select');
+
+        console.log(formInputs);
+        console.log(formSelect);
+
+        formInputs.forEach((input) => {
+            if (input.hasAttribute('disabled')){
+                console.log("has disabled")
+                input.disabled = false;
+            }else {
+                input.disabled = true;
+            }
+        });
+
+        formSelect.forEach((select) => {
+            if (select.hasAttribute('disabled')){
+                console.log("has disabled")
+                select.disabled = false;
+            }else {
+                select.disabled = true;
+
+            }
+        });
+    }
+
     const uploadButtonClick = () => {
         console.log("Upload images button click");
     }
@@ -110,37 +141,15 @@ function DisplayLatentInfo(props) {
         //used to disable the disable attribute for the re-render of the fingerPalm component
         setEditLatentInfo(true);
 
-        let latentInfoContainer = document.getElementById("latent-info-container");
-        
-        let formInputs = latentInfoContainer.querySelectorAll('input');
-        let formSelect = latentInfoContainer.querySelectorAll('select');
-        console.log(formInputs);
-        console.log(formSelect);
-
-        formInputs.forEach((input) => {
-            if (input.hasAttribute('readOnly')){
-                console.log("has read only")
-                input.readOnly = false;
-            }
-
-            if (input.hasAttribute('disabled')){
-                console.log("has disabled")
-                input.disabled = false;
-            }
-        });
-
-        formSelect.forEach((select) => {
-            if (select.hasAttribute('disabled')){
-                console.log("has disabled")
-                select.disabled = false;
-            }
-        });
+        enableDisableInputs();
     }
 
 
     const saveButtonClick = () => {
         console.log("save Info button click");
         setEditLatentInfo(false);
+        enableDisableInputs();
+
 
     }
 
@@ -305,17 +314,17 @@ function DisplayLatentInfo(props) {
 
                             <Form.Group className="col-3" controlId="benchNotesBy">
                                 <Form.Label>Bench Notes By</Form.Label>
-                                <Form.Control size="sm" type="text" name="benchNotesBy" placeholder="Bench Notes By"  readOnly value={latent.benchNotesBy} onChange={handleChange}/>
+                                <Form.Control size="sm" type="text" name="benchNotesBy" placeholder="Bench Notes By"  disabled value={latent.benchNotesBy} onChange={handleChange}/>
                             </Form.Group>
 
                             <Form.Group className="col-3" controlId="clarificationAddedToForayBy">
                                 <Form.Label>Clarification Added By</Form.Label>
-                                <Form.Control size="sm" type="text" name="clarificationAddedToForayBy" placeholder="Clarification Added By" value={(latent.clarificationAddedToForayBy)?latent.clarificationAddedToForayBy : "N/A"} onChange={handleChange} readOnly />
+                                <Form.Control size="sm" type="text" name="clarificationAddedToForayBy" placeholder="Clarification Added By" value={(latent.clarificationAddedToForayBy)?latent.clarificationAddedToForayBy : "N/A"} onChange={handleChange} disabled />
                             </Form.Group>
 
                             <Form.Group className="col-3" controlId="clarificationAddedToForayDate">
                                 <Form.Label>Date Added</Form.Label>
-                                <Form.Control size="sm" type="date" name="clarificationAddedToForayDate" value={(latent.clarificationAddedToForayDate)?latent.clarificationAddedToForayDate : ""} onChange={handleChange} readOnly/>
+                                <Form.Control size="sm" type="date" name="clarificationAddedToForayDate" value={(latent.clarificationAddedToForayDate)?latent.clarificationAddedToForayDate : ""} onChange={handleChange} disabled/>
                             </Form.Group>
                         </div>
 
@@ -388,7 +397,7 @@ function DisplayLatentInfo(props) {
 
                             <Form.Group className="col-5" controlId="distortionNotes">
                                 <Form.Label>Distortion Notes</Form.Label>
-                                <Form.Control size="sm" type="text" name="distortionNotes" placeholder="Distortion Notes" readOnly value={(latent.distortionNotes)?latent.distortionNotes : "N/A"} onChange={handleChange} />
+                                <Form.Control size="sm" type="text" name="distortionNotes" placeholder="Distortion Notes" disabled value={(latent.distortionNotes)?latent.distortionNotes : "N/A"} onChange={handleChange} />
                             </Form.Group>
                         </div>
 
@@ -415,33 +424,33 @@ function DisplayLatentInfo(props) {
                             <div className="row mb-3 mb-3">
                                 <Form.Group className="col-6" controlId="dateAfisSearch">
                                     <Form.Label>Date Searched</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateAfisSearch" value={(latent.dateAfisSearch)?latent.dateAfisSearch : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateAfisSearch" value={(latent.dateAfisSearch)?latent.dateAfisSearch : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="afisSearchBy">
                                     <Form.Label>Searched By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisSearchBy" placeholder="Searched by" value={(latent.afisSearchBy)?latent.afisSearchBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="afisSearchBy" placeholder="Searched by" value={(latent.afisSearchBy)?latent.afisSearchBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateOfAfisComparison">
                                     <Form.Label>Date Compared</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfAfisComparison" value={(latent.dateOfAfisComparison)?latent.dateOfAfisComparison : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfAfisComparison" value={(latent.dateOfAfisComparison)?latent.dateOfAfisComparison : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="afisComparedBy">
                                     <Form.Label>Compared By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisComparedBy" placeholder="Compared by" value={(latent.afisComparedBy)?latent.afisComparedBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="afisComparedBy" placeholder="Compared by" value={(latent.afisComparedBy)?latent.afisComparedBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateOfAfisVerification">
                                     <Form.Label>Date Verified</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfAfisVerification" value={(latent.dateOfAfisVerification)?latent.dateOfAfisVerification : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfAfisVerification" value={(latent.dateOfAfisVerification)?latent.dateOfAfisVerification : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="afisVerifiedBy">
                                     <Form.Label>Verified By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisVerifiedBy" placeholder="Verified by" value={(latent.afisVerifiedBy)?latent.afisVerifiedBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="afisVerifiedBy" placeholder="Verified by" value={(latent.afisVerifiedBy)?latent.afisVerifiedBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
@@ -475,11 +484,11 @@ function DisplayLatentInfo(props) {
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateRemovedFromAfis">
                                     <Form.Label>Date Removed from AFIS</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" value={(latent.dateRemovedFromAfis)?latent.dateRemovedFromAfis : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" value={(latent.dateRemovedFromAfis)?latent.dateRemovedFromAfis : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="removedFromAfisBy">
                                     <Form.Label>Removed By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" value={(latent.removedFromAfisBy)?latent.removedFromAfisBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" value={(latent.removedFromAfisBy)?latent.removedFromAfisBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>        
                     </div>
@@ -489,55 +498,55 @@ function DisplayLatentInfo(props) {
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateNgiSearch">
                                     <Form.Label>Date Searched</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateNgiSearch" value={(latent.dateNgiSearch)?latent.dateNgiSearch : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateNgiSearch" value={(latent.dateNgiSearch)?latent.dateNgiSearch : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="ngiSearchBy">
                                     <Form.Label>Searched By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="ngiSearchBy" placeholder="Searched by" value={(latent.ngiSearchBy)?latent.ngiSearchBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiSearchBy" placeholder="Searched by" value={(latent.ngiSearchBy)?latent.ngiSearchBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateOfNgiComparison">
                                     <Form.Label>Date Compared</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfNgiComparison" value={(latent.dateOfNgiComparison)?latent.dateOfNgiComparison : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfNgiComparison" value={(latent.dateOfNgiComparison)?latent.dateOfNgiComparison : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="ngiComparedBy">
                                     <Form.Label>Compared By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="ngiComparedBy" placeholder="Compared by" value={(latent.ngiComparedBy)?latent.ngiComparedBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiComparedBy" placeholder="Compared by" value={(latent.ngiComparedBy)?latent.ngiComparedBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateOfNgiVerification">
                                     <Form.Label>Date Verified</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfNgiVerification" value={(latent.dateOfNgiVerification)?latent.dateOfNgiVerification : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfNgiVerification" value={(latent.dateOfNgiVerification)?latent.dateOfNgiVerification : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="ngiVerifiedBy">
                                     <Form.Label>Verified By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="ngiVerifiedBy" placeholder="Verified by" value={(latent.ngiVerifiedBy)?latent.ngiVerifiedBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiVerifiedBy" placeholder="Verified by" value={(latent.ngiVerifiedBy)?latent.ngiVerifiedBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="ngiReceiptSavedDate">
                                     <Form.Label>Date XV Receipt Saved</Form.Label>
-                                    <Form.Control size="sm" type="date" name="ngiReceiptSavedDate" value={(latent.ngiReceiptSavedDate)?latent.ngiReceiptSavedDate : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="ngiReceiptSavedDate" value={(latent.ngiReceiptSavedDate)?latent.ngiReceiptSavedDate : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="ngiReceiptSavedBy">
                                     <Form.Label>Saved By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="ngiReceiptSavedBy" placeholder="Removed by" value={(latent.ngiReceiptSavedDate)?latent.ngiReceiptSavedDate : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiReceiptSavedBy" placeholder="Removed by" value={(latent.ngiReceiptSavedBy)?latent.ngiReceiptSavedBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
-                                <Form.Group className="col-6" controlId="dateRemovedFromAfis">
+                                <Form.Group className="col-6" controlId="dateRemovedNgiIrq">
                                     <Form.Label>Date Removed IRQ</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" value={(latent.dateRemovedNgiIrq)?latent.dateRemovedNgiIrq : ""} onChange={handleChange} readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateRemovedNgiIrq" value={(latent.dateRemovedNgiIrq)?latent.dateRemovedNgiIrq : ""} onChange={handleChange} disabled/>
                                 </Form.Group>
-                                <Form.Group className="col-6" controlId="removedFromAfisBy">
+                                <Form.Group className="col-6" controlId="removedNgiIrqBy">
                                     <Form.Label>Removed By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" value={(latent.removedNgiIrqBy)?latent.removedNgiIrqBy : ""} onChange={handleChange} readOnly />
+                                    <Form.Control size="sm" type="text" name="removedNgiIrqBy" placeholder="Removed by" value={(latent.removedNgiIrqBy)?latent.removedNgiIrqBy : ""} onChange={handleChange} disabled />
                                 </Form.Group>
                             </div>
                     </div>
