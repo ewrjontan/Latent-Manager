@@ -124,7 +124,7 @@ function DisplayComparison(props) {
                 </Form.Group>
                 <Form.Group className="col-4" controlId="fbiNumber">
                     <Form.Label>FBI Number (if applicable)</Form.Label>
-                    <Form.Control size="sm" type="text" name="fbiNumber" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "NA")} onChange={handleChange}/>
+                    <Form.Control size="sm" type="text" name="fbiNumber" placeholder="FBI Number"  readOnly value={(state.fbiNumber ? state.fbiNumber: "N/A")} onChange={handleChange}/>
                 </Form.Group>
 
                 <Form.Group className="col-4" controlId="conclusion">
@@ -153,11 +153,11 @@ function DisplayComparison(props) {
                 </Form.Group>
             </div>
             
-            <div className="d-flex justify-content-between mt-5">
+            <div className="d-flex justify-content-between my-5">
 
                 <Button className="btn-color col-2">Delete</Button>
 
-                <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit</Button>
+                <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit Comparison</Button>
 
                 <Button className="btn-color col-2" onClick={() => editButtonClick()}>View Comparison Image</Button>
 

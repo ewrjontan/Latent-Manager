@@ -61,7 +61,7 @@ function DisplayCase() {
                                                     </td>
                                                     <td>{(latent.identified ? "Identified": "Not Identified") }</td>
                                                     <td>{latent.dateFound}</td>
-                                                    <td>{latent.technician}</td>
+                                                    <td>{latent.developedBy}</td>
                                                     <td>{(latent.identified ? latent.identifier: "")}</td>
                                                     <td>{(latent.identified ? latent.verifier: "") }</td>
                                                 </tr>

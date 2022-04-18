@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 
 function DisplayLatentInfo(props) {
 
-    const [state, setState] = useState({
+    const [latent, setLatent] = useState({
         "dateFound": "",
         "developedBy": "",
         "detailLevelOne": "",
@@ -15,9 +15,9 @@ function DisplayLatentInfo(props) {
         "fingerNumber": "",
         "pattern": "",
         "reference": "",
-        "palm": "",
+        "palmLeftOrRight": "",
         "palmArea": "",
-        "developmentTechnique": "",
+        "processingMethod": "",
         "benchNotesBy": "",
         "notes": "",
         "consultation": "",
@@ -61,21 +61,51 @@ function DisplayLatentInfo(props) {
             console.log(passedLatent);
 
             Object.keys(passedLatent).map(key => {
-                setState((state) => ({ ...state, [key]: passedLatent[key] }));
+                setLatent((latent) => ({ ...latent, [key]: passedLatent[key] }));
             })
 
         }
         
     }, []);
 
+    const handleChange = (event) => {
+        console.log("change occuring");
+        console.log(event.target.name);
+
+        let name = event.target.name
+        let value = event.target.value
+
+        setLatent({
+            ...latent,
+            [name]: value
+        });
+    }
+
+    const uploadButtonClick = () => {
+        console.log("Upload images button click");
+    }
+
+    const downloadButtonClick = () => {
+        console.log("download images button click");
+    }
+
+    const editButtonClick = () => {
+        console.log("edit button click");
+    }
+
+
+    const saveButtonClick = () => {
+        console.log("save Info button click");
+    }
+
 
     const FingerPalmDropDowns = () => {
-        if (props.latent.fingerOrPalm === "finger"){
+        if (latent.fingerOrPalm === "finger"){
             return (
                 <Fragment>
                     <Form.Group className="col-2">
                         <Form.Label className="">Finger #</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Finger Number">
+                        <Form.Select size="sm" className="finger-select-dropdown" name="fingerNumber" aria-label="Finger Number" value={latent.fingerNumber} disabled onChange={handleChange}>
                             <option value="1">#1 R. Thumb</option>
                             <option value="2">#2 R. Index</option>
                             <option value="3">#3 R. Middle</option>
@@ -91,26 +121,28 @@ function DisplayLatentInfo(props) {
 
                     <Form.Group className="col-2">
                         <Form.Label className="">Finger Pattern</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Select Pattern">
-                            <option value="1">Arch</option>
-                            <option value="2">R. Loop</option>
-                            <option value="3">L. Loop</option>
-                            <option value="4">Whorl</option>
-                            <option value="5">Double Loop Whorl</option>
-                            <option value="6">Other</option>
+                        <Form.Select size="sm" className="finger-select-dropdown" value={latent.pattern} disabled onChange={handleChange} aria-label="Select Pattern">
+                            <option value="arch">Arch</option>
+                            <option value="right loop">R. Loop</option>
+                            <option value="left loop">L. Loop</option>
+                            <option value="whorl">Whorl</option>
+                            <option value="double loop whorl">Double Loop Whorl</option>
+                            <option value="tented arch">Tented Arch</option>
+                            <option value="other">Other</option>
                         </Form.Select>
                     </Form.Group>
 
                     <Form.Group className="col-2">
                         <Form.Label className="">Pattern Ref.</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Finger Pattern Reference">
-                            <option value="1">Arch</option>
-                            <option value="2">R. Loop</option>
-                            <option value="3">L. Loop</option>
-                            <option value="4">Whorl</option>
-                            <option value="5">Double Loop Whorl</option>
-                            <option value="6">Tented Arch</option>
-                            <option value="7">Other</option>
+                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Finger Pattern Reference" value={(latent.reference ? latent.reference: "na")} disabled onChange={handleChange}>
+                            <option value="na">N/A</option>
+                            <option value="arch">Arch</option>
+                            <option value="right loop">R. Loop</option>
+                            <option value="left loop">L. Loop</option>
+                            <option value="whorl">Whorl</option>
+                            <option value="double loop whorl">Double Loop Whorl</option>
+                            <option value="tented arch">Tented Arch</option>
+                            <option value="other">Other</option>
                         </Form.Select>
                     </Form.Group>
                 </Fragment>
@@ -120,20 +152,20 @@ function DisplayLatentInfo(props) {
                 <Fragment>
                     <Form.Group className="col-3">
                         <Form.Label className="">Palm (L or R)</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Left or Right Palm">
-                            <option value="1">R. Palm</option>
-                            <option value="2">L. Palm</option>
+                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Left or Right Palm" value={latent.palmLeftOrRight} disabled onChange={handleChange}>
+                            <option value="right">R. Palm</option>
+                            <option value="left">L. Palm</option>
                         </Form.Select>
                     </Form.Group>
 
                     <Form.Group className="col-3">
                         <Form.Label className="">Palm Area</Form.Label>
-                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Select Palm Area">
-                            <option value="1">Thenar</option>
-                            <option value="2">Hypothenar</option>
-                            <option value="3">Interdigital</option>
-                            <option value="4">Writers Palm</option>
-                            <option value="5">Unknown</option>
+                        <Form.Select size="sm" className="finger-select-dropdown" aria-label="Select Palm Area" value={latent.palmArea} disabled onChange={handleChange}>
+                            <option value="thenar">Thenar</option>
+                            <option value="hypothenar">Hypothenar</option>
+                            <option value="interdigital">Interdigital</option>
+                            <option value="writers palm">Writers Palm</option>
+                            <option value="unknown">Unknown</option>
                         </Form.Select>
                     </Form.Group>
                 </Fragment>
@@ -152,7 +184,7 @@ function DisplayLatentInfo(props) {
 
             <Form className="text-center">
                 <div className="row">
-                    <div className="col-9 mt-3">
+                    <div className="col-9 pe-4">
                         <div className="row mb-3 ">
                             <Form.Group className="col-6" controlId="detailLevel">
                                 <Form.Label className="">Detail Level</Form.Label>
@@ -162,12 +194,14 @@ function DisplayLatentInfo(props) {
                                         label="1"
                                         name="detailLevelOne"
                                         type="checkbox"
-                                        checked
+                                        checked={latent.detailLevelOne}
                                         disabled
                                         id="detailLevelOne"
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.detailLevelTwo}
                                         label="2"
                                         name="detailLevelTwo"
                                         type="checkbox"
@@ -175,6 +209,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.detailLevelThree}
                                         name="detailLevelThree"
                                         label="3"
                                         type="checkbox"
@@ -182,6 +218,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.core}
                                         name="core"
                                         label="Core"
                                         type="checkbox"
@@ -189,6 +227,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.delta}
                                         name="delta"
                                         label="Delta"
                                         type="checkbox"
@@ -203,28 +243,28 @@ function DisplayLatentInfo(props) {
                         <div className="row mb-3">
                             <Form.Group className="col-3">
                                 <Form.Label>Processing Method</Form.Label>
-                                <Form.Select size="sm" className="" aria-label="Development Technique">
-                                    <option value="1">Black Powder</option>
-                                    <option value="2">Ninhydrin</option>
-                                    <option value="3">Cyanoacrylate</option>
-                                    <option value="4">Blue Star</option>
-                                    <option value="5">Other</option>
+                                <Form.Select size="sm" className="" aria-label="Development Technique" value={latent.processingMethod} disabled onChange={handleChange}>
+                                    <option value="black powder">Black Powder</option>
+                                    <option value="ninhydrin">Ninhydrin</option>
+                                    <option value="cyanoacrylate">Cyanoacrylate</option>
+                                    <option value="blue star">Blue Star</option>
+                                    <option value="other">Other</option>
                                 </Form.Select>
                             </Form.Group>
 
                             <Form.Group className="col-3" controlId="benchNotesBy">
                                 <Form.Label>Bench Notes By</Form.Label>
-                                <Form.Control size="sm" type="text" name="benchNotesBy" placeholder="Bench Notes By" required readOnly />
+                                <Form.Control size="sm" type="text" name="benchNotesBy" placeholder="Bench Notes By"  readOnly value={latent.benchNotesBy} onChange={handleChange}/>
                             </Form.Group>
 
                             <Form.Group className="col-3" controlId="clarificationAddedToForayBy">
                                 <Form.Label>Clarification Added By</Form.Label>
-                                <Form.Control size="sm" type="text" name="clarificationAddedToForayBy" placeholder="Clarification Added By" required readOnly />
+                                <Form.Control size="sm" type="text" name="clarificationAddedToForayBy" placeholder="Clarification Added By" value={(latent.clarificationAddedToForayBy)?latent.clarificationAddedToForayBy : "N/A"} onChange={handleChange} readOnly />
                             </Form.Group>
 
                             <Form.Group className="col-3" controlId="clarificationAddedToForayDate">
                                 <Form.Label>Date Added</Form.Label>
-                                <Form.Control size="sm" type="date" name="clarificationAddedToForayDate" required readOnly/>
+                                <Form.Control size="sm" type="date" name="clarificationAddedToForayDate" value={(latent.clarificationAddedToForayDate)?latent.clarificationAddedToForayDate : ""} onChange={handleChange} readOnly/>
                             </Form.Group>
                         </div>
 
@@ -234,14 +274,17 @@ function DisplayLatentInfo(props) {
                                 <div>
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.overlay}
                                         label="Overlay"
                                         name="overlay"
                                         type="checkbox"
-                                        checked
                                         id="distortionOverlay"
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.smear}
                                         label="Smear"
                                         name="smear"
                                         type="checkbox"
@@ -249,6 +292,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.reversal}
                                         name="reversal"
                                         label="Reversal"
                                         type="checkbox"
@@ -256,6 +301,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.pressure}
                                         name="pressure"
                                         label="Pressure"
                                         type="checkbox"
@@ -263,6 +310,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.creases}
                                         name="creases"
                                         label="Creases"
                                         type="checkbox"
@@ -270,6 +319,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.scars}
                                         name="scars"
                                         label="Scars"
                                         type="checkbox"
@@ -280,23 +331,23 @@ function DisplayLatentInfo(props) {
 
                             <Form.Group className="col-5" controlId="distortionNotes">
                                 <Form.Label>Distortion Notes</Form.Label>
-                                <Form.Control size="sm" type="text" name="distortionNotes" placeholder="Distortion Notes" required readOnly value={state.distortionNotes} />
+                                <Form.Control size="sm" type="text" name="distortionNotes" placeholder="Distortion Notes" readOnly value={(latent.distortionNotes)?latent.distortionNotes : "N/A"} onChange={handleChange} />
                             </Form.Group>
                         </div>
 
-                        <div className="d-flex justify-content-around">
+                        <div className="d-flex justify-content-between mt-5">
                             {/* <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit</Button> */}
 
-
-                            <Button className="btn-color col-2">Download Latent</Button>
-                            <Button className="btn-color col-2">Edit Info</Button>
-                            <Button className="btn-color col-2" type="submit">Save</Button>
+                            <Button className="btn-color col-2" onClick={() => uploadButtonClick()}>Upload Images</Button>
+                            <Button className="btn-color col-2" onClick={() => downloadButtonClick()}>Download Images</Button>
+                            <Button className="btn-color col-2" onClick={() => editButtonClick()}>Edit Info</Button>
+                            <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button>
                             {/* <Button className="btn-color col-2" type="submit" onClick={() => saveButtonClick()}>Save</Button> */}
                         </div>
                     </div>
 
-                    <div className="col-3 bg-white text-center">
-                        <img src={require("../../images/latentPrint.jpg")} alt="Latent Image"/>
+                    <div className="col-3 bg-white text-center d-flex align-items-middle justify-content-center">
+                        <img src={require("../../images/latentPrint.jpg")} alt="Latent"/>
                         {/* <img src={latent.latentImage}/> */}
                     </div>
                 </div>
@@ -307,33 +358,33 @@ function DisplayLatentInfo(props) {
                             <div className="row mb-3 mb-3">
                                 <Form.Group className="col-6" controlId="dateAfisSearch">
                                     <Form.Label>Date Searched</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateAfisSearch" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateAfisSearch" value={(latent.dateAfisSearch)?latent.dateAfisSearch : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="afisSearchBy">
                                     <Form.Label>Searched By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisSearchBy" placeholder="Searched by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="afisSearchBy" placeholder="Searched by" value={(latent.afisSearchBy)?latent.afisSearchBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateOfAfisComparison">
                                     <Form.Label>Date Compared</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfAfisComparison" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfAfisComparison" value={(latent.dateOfAfisComparison)?latent.dateOfAfisComparison : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="afisComparedBy">
                                     <Form.Label>Compared By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisComparedBy" placeholder="Compared by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="afisComparedBy" placeholder="Compared by" value={(latent.afisComparedBy)?latent.afisComparedBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateOfAfisVerification">
                                     <Form.Label>Date Verified</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfAfisVerification" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfAfisVerification" value={(latent.dateOfAfisVerification)?latent.dateOfAfisVerification : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="afisVerifiedBy">
                                     <Form.Label>Verified By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisVerifiedBy" placeholder="Verified by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="afisVerifiedBy" placeholder="Verified by" value={(latent.afisVerifiedBy)?latent.afisVerifiedBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
@@ -343,6 +394,8 @@ function DisplayLatentInfo(props) {
                                 <div className="col-6">
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={latent.retainedInAfis}
                                         label="Yes"
                                         name="retainedInAfis"
                                         type="checkbox"
@@ -350,6 +403,8 @@ function DisplayLatentInfo(props) {
                                     />
                                     <Form.Check
                                         inline
+                                        disabled
+                                        checked={!latent.retainedInAfis}
                                         label="No"
                                         name="retainedInAfis"
                                         type="checkbox"
@@ -361,11 +416,11 @@ function DisplayLatentInfo(props) {
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateRemovedFromAfis">
                                     <Form.Label>Date Removed from AFIS</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" value={(latent.dateRemovedFromAfis)?latent.dateRemovedFromAfis : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="removedFromAfisBy">
                                     <Form.Label>Removed By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" value={(latent.removedFromAfisBy)?latent.removedFromAfisBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>        
                     </div>
@@ -373,57 +428,57 @@ function DisplayLatentInfo(props) {
                     <div className="col-6">
                         <h3>NGI Information</h3>
                             <div className="row mb-3">
-                                <Form.Group className="col-6" controlId="dateAfisSearch">
+                                <Form.Group className="col-6" controlId="dateNgiSearch">
                                     <Form.Label>Date Searched</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateAfisSearch" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateNgiSearch" value={(latent.dateNgiSearch)?latent.dateNgiSearch : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
-                                <Form.Group className="col-6" controlId="afisSearchBy">
+                                <Form.Group className="col-6" controlId="ngiSearchBy">
                                     <Form.Label>Searched By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisSearchBy" placeholder="Searched by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiSearchBy" placeholder="Searched by" value={(latent.ngiSearchBy)?latent.ngiSearchBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
-                                <Form.Group className="col-6" controlId="dateOfAfisComparison">
+                                <Form.Group className="col-6" controlId="dateOfNgiComparison">
                                     <Form.Label>Date Compared</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfAfisComparison" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfNgiComparison" value={(latent.dateOfNgiComparison)?latent.dateOfNgiComparison : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
-                                <Form.Group className="col-6" controlId="afisComparedBy">
+                                <Form.Group className="col-6" controlId="ngiComparedBy">
                                     <Form.Label>Compared By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisComparedBy" placeholder="Compared by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiComparedBy" placeholder="Compared by" value={(latent.ngiComparedBy)?latent.ngiComparedBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
-                                <Form.Group className="col-6" controlId="dateOfAfisVerification">
+                                <Form.Group className="col-6" controlId="dateOfNgiVerification">
                                     <Form.Label>Date Verified</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateOfAfisVerification" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateOfNgiVerification" value={(latent.dateOfNgiVerification)?latent.dateOfNgiVerification : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
-                                <Form.Group className="col-6" controlId="afisVerifiedBy">
+                                <Form.Group className="col-6" controlId="ngiVerifiedBy">
                                     <Form.Label>Verified By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="afisVerifiedBy" placeholder="Verified by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiVerifiedBy" placeholder="Verified by" value={(latent.ngiVerifiedBy)?latent.ngiVerifiedBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
-                                <Form.Group className="col-6" controlId="dateRemovedFromAfis">
+                                <Form.Group className="col-6" controlId="ngiReceiptSavedDate">
                                     <Form.Label>Date XV Receipt Saved</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="ngiReceiptSavedDate" value={(latent.ngiReceiptSavedDate)?latent.ngiReceiptSavedDate : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
-                                <Form.Group className="col-6" controlId="removedFromAfisBy">
+                                <Form.Group className="col-6" controlId="ngiReceiptSavedBy">
                                     <Form.Label>Saved By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="ngiReceiptSavedBy" placeholder="Removed by" value={(latent.ngiReceiptSavedDate)?latent.ngiReceiptSavedDate : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
 
                             <div className="row mb-3">
                                 <Form.Group className="col-6" controlId="dateRemovedFromAfis">
                                     <Form.Label>Date Removed IRQ</Form.Label>
-                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" required readOnly/>
+                                    <Form.Control size="sm" type="date" name="dateRemovedFromAfis" value={(latent.dateRemovedNgiIrq)?latent.dateRemovedNgiIrq : ""} onChange={handleChange} readOnly/>
                                 </Form.Group>
                                 <Form.Group className="col-6" controlId="removedFromAfisBy">
                                     <Form.Label>Removed By</Form.Label>
-                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" required readOnly />
+                                    <Form.Control size="sm" type="text" name="removedFromAfisBy" placeholder="Removed by" value={(latent.removedNgiIrqBy)?latent.removedNgiIrqBy : ""} onChange={handleChange} readOnly />
                                 </Form.Group>
                             </div>
                     </div>

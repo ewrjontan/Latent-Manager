@@ -112,7 +112,7 @@ function DisplayLatent(){
                 <DisplayComparison comparison={latent.comparisons[comparisonIndex]}/>
             )
         }else {
-            return <h4 className="mt-5 text-center">No comparisons have been performed.</h4>
+            return <h4 className="my-5 text-center">No comparisons have been performed.</h4>
         }
     }
 
