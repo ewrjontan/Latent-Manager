@@ -28,7 +28,7 @@ function PrintCaseFileTable(props){
                                 <td><h6>Lifts: {printCaseFile.lifts.length}</h6></td>
                                 <td><h6>Latents: {printCaseFile.latents.length}</h6></td>
 
-                                <td><Link key={index} to="/display-print-case-file" state={{ printCaseFile: printCaseFile, incident: props.caseNumber, incidentType: props.incidentType}} className="w-25">
+                                <td><Link key={index} to="/display-print-case-file" state={{ printCaseFile: printCaseFile, caseNumber: props.caseNumber, incidentType: props.incidentType}} className="w-25">
                                     <Button className="btn-color w-100" size="sm">View</Button>
                                 </Link></td>
                                 {/* <Link className="view-latent-button" to="/display-latent" state={{ latent: latent, incident: incident.caseNumber, incidentType: incident.incidentType }}><FontAwesomeIcon icon={faCirclePlus} /></Link> */}

@@ -1,12 +1,16 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import TopNavigation from "./subComponents/TopNavigationComponent";
 
+import LatentTable from "./subComponents/LatentTableFullComponent";
+import LiftTable from "./subComponents/LiftTableComponent";
+
+
 
 function DisplayPrintCaseFile() {
     const navigate = useNavigate();
     const location = useLocation()
 
-    const { printCaseFile, incident, incidentType } = location.state
+    const { printCaseFile, caseNumber, incidentType } = location.state
 
     console.log("printCaseFile on printcasefile page");
     console.log(location.state);
@@ -19,6 +23,9 @@ function DisplayPrintCaseFile() {
                 <p><strong>Date Started: </strong>{printCaseFile.dateStarted}</p>
                 <p><strong>Started By: </strong>{printCaseFile.technician}</p>
             </div>
+
+            <LatentTable printCaseFile={printCaseFile} caseNumber={caseNumber} incidentType={incidentType}/>
+            <LiftTable printCaseFile={printCaseFile} caseNumber={caseNumber} incidentType={incidentType}/>
 
         </div>
     )

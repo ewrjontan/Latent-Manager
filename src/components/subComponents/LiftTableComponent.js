@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 
 
 
-function LatentTable(props) {
+function LiftTable(props) {
     const { printCaseFile, caseNumber, incidentType } = props;
 
-    const [latentCount, setLatentCount] = useState(printCaseFile.latents.length);
+    const [liftCount, setLiftCount] = useState(printCaseFile.lifts.length);
 
 
 
-    if (latentCount !== 0){
+    if (liftCount !== 0){
         return (
             <div className="mt-4">
                 
-                <h3>Latents ({latentCount})</h3>
+                <h3>Lifts ({liftCount})</h3>
 
                 <Table striped bordered hover size="sm" className="mt-3 latent-table">
                     <thead>
@@ -56,9 +56,9 @@ function LatentTable(props) {
         )
     }else {
         return (
-            <h5 className="mt-5 text-center">No latents available to display or are awaiting valuation.</h5>
+            <h5 className="mt-5 text-center">No lifts available to display. Please add lifts.</h5>
         )
     }
 }
 
-export default LatentTable;
+export default LiftTable;

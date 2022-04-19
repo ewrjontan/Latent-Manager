@@ -37,7 +37,7 @@ function LatentTable(props) {
                                         return (
                                             <tr key={index}>
                                                 <td>{`EL${latent.elNumber}`}
-                                                    <Link className="view-latent-button" to="/display-latent" state={{ latent: latent, incident: incident.caseNumber, incidentType: incident.incidentType }}><FontAwesomeIcon icon={faCirclePlus} /></Link>
+                                                    <Link className="view-latent-button" to="/display-latent" state={{ latent: latent, caseNumber: incident.caseNumber, incidentType: incident.incidentType }}><FontAwesomeIcon icon={faCirclePlus} /></Link>
                                                 </td>
                                                 <td>{(latent.identified ? "Identified": "Not Identified") }</td>
                                                 <td>{latent.dateFound}</td>

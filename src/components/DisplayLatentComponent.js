@@ -45,7 +45,7 @@ import testImage from "../images/latentPrint.jpg"
 function DisplayLatent(){
     const navigate = useNavigate();
     const location = useLocation();
-    const { latent, incident, incidentType } = location.state
+    const { latent, caseNumber, incidentType } = location.state
 
 
     const [comparisonCount, setComparisonCount] = useState(0);
@@ -129,7 +129,7 @@ function DisplayLatent(){
                 <div className="col">
 
                     <div className="row d-flex">
-                        <h1 className="col-8">{incident} - EL{latent.elNumber} ({(latent.identified ? "Identified" : "Not Identified")})</h1>
+                        <h1 className="col-8">{caseNumber} - EL{latent.elNumber} ({(latent.identified ? "Identified" : "Not Identified")})</h1>
 
                         <div className="col-4 d-flex flex-row justify-content-between">
                             <div>
