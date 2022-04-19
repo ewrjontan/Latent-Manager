@@ -12,7 +12,7 @@
         {
           "id": 0,
           "safeItemNumber": 3,
-          "complete": false,
+          "complete": true,
           "technician": "Klemme D105",
           "dateStarted": "2021-05-22",
           "lifts": [

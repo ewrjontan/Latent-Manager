@@ -10,7 +10,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 import PrintCaseFileTable from "./subComponents/PrintCaseFileTableComponent";
 import TopNavigation from "./subComponents/TopNavigationComponent";
-import LatentTable from "./subComponents/LatentTableComponent";
+import LatentTable from "./subComponents/LatentTableQuickComponent";
 
 function DisplayCase() {
     const navigate = useNavigate();
@@ -52,7 +52,7 @@ function DisplayCase() {
                 <div className="col-6">
                     <h1 className="my-3 text-center">Print Case Files ({printCaseFileCount})</h1>
                     
-                    <PrintCaseFileTable printCaseFiles={incident.printCaseFiles}/>
+                    <PrintCaseFileTable printCaseFiles={incident.printCaseFiles} caseNumber={incident.caseNumber} incidentType={incident.incidentType}/>
                 </div>
             </div>
             
