@@ -2,18 +2,13 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function DisplayPrintCaseFileTable(props){
+function PrintCaseFileTable(props){
     const [printCaseFiles, setPrintCaseFiles] = useState(null);
-
-    console.log("printcasefiletableasd props")
-    console.log(props.printCaseFiles);
 
     useEffect(() => {
         
         if (props.printCaseFiles.length !== 0) {
             setPrintCaseFiles(props.printCaseFiles);
-            console.log("printcasefiletable props")
-            console.log(printCaseFiles);
         }
         
     }, []);
@@ -21,12 +16,13 @@ function DisplayPrintCaseFileTable(props){
 
     if (printCaseFiles){
         return (
-            <table className="print-case-file-table mx-auto">
+        <div className="print-case-file-table">
+            <table className="mx-auto w-100">
                 <tbody>
                     {printCaseFiles.map((printCaseFile, index)=> {
                         return(
                             <tr key={index}>
-                                <td><h6>Safe item: {printCaseFile.safeItemNumber}</h6></td>
+                                <td><h6>SAFE item #: {printCaseFile.safeItemNumber}</h6></td>
                                 <td><h6>Lifts: {printCaseFile.lifts.length}</h6></td>
                                 <td><h6>Latents: {printCaseFile.latents.length}</h6></td>
                                 <td><Link key={index} to="/display-print-case-file" state={{ printCaseFile: printCaseFile}} className="w-25">
@@ -38,6 +34,7 @@ function DisplayPrintCaseFileTable(props){
                     })}
                 </tbody>
             </table>
+        </div>
         )
     }else {
         return (
@@ -46,4 +43,4 @@ function DisplayPrintCaseFileTable(props){
     }
 }
 
-export default DisplayPrintCaseFileTable
+export default PrintCaseFileTable;

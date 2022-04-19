@@ -89,8 +89,10 @@ a {
 }
 
 .print-case-file-table {
-    width: 90%;
-    
+    width: 100%;
+    height: 100%;
+    max-height: 140px;
+    overflow-y: auto;
 }
 
 .print-case-file-table td {
