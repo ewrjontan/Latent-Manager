@@ -169,6 +169,7 @@ function DisplayLatent(){
                 
             </div>
 
+            <h3>Add latent comparisons date</h3>
             <div className="" id="comparison-container">
                <DisplayComparisons />
             </div>
