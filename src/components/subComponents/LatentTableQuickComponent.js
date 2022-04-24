@@ -14,7 +14,7 @@ function LatentTable(props) {
             <div className="mt-4">
                 {incident.printCaseFiles.map( (printCaseFile, index) => {
                     return (
-                        <React.Fragment key={index}>
+                        <div className="mb-5" key={index}>
                             <h3>SAFE Item #{printCaseFile.safeItemNumber}</h3>
 
                             <Table striped bordered hover size="sm" className="mt-3 latent-table">
@@ -50,7 +50,7 @@ function LatentTable(props) {
 
                                 </tbody>
                             </Table>
-                        </React.Fragment>
+                        </div>
                     )
                 })}
             </div>

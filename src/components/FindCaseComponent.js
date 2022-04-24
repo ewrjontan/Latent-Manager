@@ -12,7 +12,7 @@ function FindCase() {
         "victimLastName": "",
         "victimFirstName": "",
         "dateOfIncident": "",
-        "location": "",
+        "incidentLocation": "",
         "incidentType": ""
     });
 
@@ -57,7 +57,7 @@ function FindCase() {
                         victimLastName: state.victimLastName.toUpperCase(),
                         victimFirstName: state.victimFirstName,
                         dateOfIncident: state.dateOfIncident,
-                        incidentLocation: state.location.toUpperCase(),
+                        incidentLocation: state.incidentLocation.toUpperCase(),
                         incidentType: state.incidentType.toLowerCase()
                     }
                     
@@ -67,8 +67,6 @@ function FindCase() {
     }
 
     const handleKeyDown = (event) => {
-        
-
         if (event.key === 'Enter') {
             event.preventDefault();
             console.log('enter key pressed')
@@ -93,17 +91,29 @@ function FindCase() {
 
             <Form onSubmit={handleSubmit} id="advanced-search-form">
                 <div className="row d-flex justify-content-around text-center mb-3">
-                    <Form.Group className="col-5" controlId="lastName">
+                    <Form.Group className="col-5" controlId="caseNumber">
                         <Form.Label>Case Number</Form.Label>
-                        <Form.Control type="text" name="caseNumber" placeholder="Case Number (six character format i.e. AS06789)" value={state.caseNumber} onChange={handleChange} onKeyDown={handleKeyDown}/>
+                        <Form.Control type="text" name="caseNumber" placeholder="Case Number (six or seven character format i.e. AS06789)" value={state.caseNumber} onChange={handleChange} onKeyDown={handleKeyDown}/>
                     </Form.Group>
 
-                    <Form.Group className="col-5" controlId="location">
-                        <Form.Label>Location</Form.Label>
-                        <Form.Control type="text" name="location" placeholder="Location (ex: 505 S 15 ST)" value={state.location} onChange={handleChange} onKeyDown={handleKeyDown}/>
+                    <Form.Group className="col-5" controlId="dateOfIncident">
+                        <Form.Label>Date of Incident</Form.Label>
+                        <Form.Control type="date" name="dateOfIncident"  value={state.dateOfIncident} onChange={handleChange} onKeyDown={handleKeyDown}/>
                     </Form.Group>
                 </div>
                 
+                <div className="row d-flex justify-content-around text-center mb-3">
+                    <Form.Group className="col-5" controlId="incidentLocation">
+                        <Form.Label>Location</Form.Label>
+                        <Form.Control type="text" name="incidentLocation" placeholder="Location (ex: 505 S 15 ST)" value={state.incidentLocation} onChange={handleChange} onKeyDown={handleKeyDown}/>
+                    </Form.Group>
+
+                    <Form.Group className="col-5" controlId="incidentType">
+                        <Form.Label>Incident Type</Form.Label>
+                        <Form.Control type="text" name="incidentType" placeholder="Incident Type (ex: Felony Assault)"  value={state.incidentType} onChange={handleChange} onKeyDown={handleKeyDown}/>
+                    </Form.Group>
+                </div>
+
                 <div className="row d-flex justify-content-around text-center mb-3">
                     <Form.Group className="col-5" controlId="victimLastName">
                         <Form.Label>Victim Last Name</Form.Label>
@@ -113,17 +123,6 @@ function FindCase() {
                         <Form.Label>Victim First Name</Form.Label>
                         <Form.Control type="text" name="victimFirstName" placeholder="First Name"  value={state.victimFirstName} onChange={handleChange} onKeyDown={handleKeyDown}/>
                     </Form.Group>
-                </div>
-
-                <div className="row d-flex justify-content-around text-center mb-3">
-                    <Form.Group className="col-5" controlId="dateOfIncident">
-                        <Form.Label>Date of Incident</Form.Label>
-                        <Form.Control type="date" name="dateOfIncident"  value={state.dateOfIncident} onChange={handleChange} onKeyDown={handleKeyDown}/>
-                    </Form.Group>
-                    <Form.Group className="col-5" controlId="incidentType">
-                            <Form.Label>Incident Type</Form.Label>
-                            <Form.Control type="text" name="incidentType" placeholder="Incident Type (ex: Felony Assault)"  value={state.incidentType} onChange={handleChange} onKeyDown={handleKeyDown}/>
-                        </Form.Group>
                 </div>
 
                 <div className="row d-flex justify-content-around text-center mt-5">

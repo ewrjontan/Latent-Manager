@@ -44,7 +44,8 @@ function RecentCases() {
                     {incidents.map( (incident, index) => {
                         return (
                             <div className="col-12 col-md-8 mb-3" key={index}>
-                                <Link to="/display-case" state={{ incident: incident }}>
+                                <Link to="/display-case" state={{ passedIncidentId: incident._id }}>
+                                {/* <Link to="/display-case" state={{ incident: incident }}> */}
                                     <Button className="btn-color">{incident.caseNumber}</Button>
                                 </Link>
                             </div>

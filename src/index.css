@@ -37,6 +37,26 @@ a {
     top: 200px;
 }
 
+.error-container {
+    position: relative;
+    top: 200px;
+}
+
+.saving-overlay-container {
+    /* position: absolute;
+    z-index: 2;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%; */
+    position: relative;
+    top: 200px;
+}
+
 .btn-color{
     background-color: #FFFFFF;
     color: #0B2545;
@@ -62,6 +82,13 @@ a {
 /* input:active {
     border: 2px solid yellow;
 } */
+
+
+/* Add new case page */
+#add-new-case-main-container{
+    position: relative;
+}
+
 
 .latent-table {
     background-color: white;

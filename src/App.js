@@ -7,6 +7,7 @@ import DisplayLatent from "./components/DisplayLatentComponent";
 import DisplayPrintCaseFile from "./components/DisplayPrintCaseFileComponent";
 import DisplayBasicSearchResults from "./components/DisplayBasicSearchResultsComponent";
 import DisplayAdvancedSearchResults from "./components/DisplayAdvancedSearchResultsComponent";
+import DisplayError from "./components/DisplayErrorComponent";
 
 import FindCase from "./components/FindCaseComponent";
 
@@ -40,6 +41,7 @@ function App() {
 
             </nav>
 
+            {/* needed for spacing of fixed nav menu */}
             <div className="nav-placeholder"></div>
 
             <div className="col text-start pt-5 px-5">
@@ -54,7 +56,7 @@ function App() {
                     <Route path="display-basic-search-results" element={<DisplayBasicSearchResults />} />
                     <Route path="display-advanced-search-results" element={<DisplayAdvancedSearchResults />} />
                     <Route path="find-case" element={<FindCase />} />
-
+                    <Route path="display-error" element={<DisplayError />} />
                 </Routes>
             </div>
       

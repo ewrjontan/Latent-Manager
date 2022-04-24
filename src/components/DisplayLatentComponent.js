@@ -96,7 +96,7 @@ function DisplayLatent(){
         if (latent.comparisons) {
             return (
                 <div className="d-flex justify-content-between">
-                    <h3>Comparisons</h3>
+                    <h3>Comparisons (insert date range)</h3>
                     <h3>Page {comparisonPage}/{comparisonCount}</h3>
                 </div>
                 
@@ -166,14 +166,11 @@ function DisplayLatent(){
                 <h6><FontAwesomeIcon icon={faCirclePlus} className="add-comparison-icon" onClick={() => addComparison()}/> Add Comparison</h6>
                 
                 <h6>Next <FontAwesomeIcon icon={faArrowRight} className="back-icon" onClick={() => nextComparison()}/></h6>
-                
             </div>
 
-            <h3>Add latent comparisons date</h3>
             <div className="" id="comparison-container">
                <DisplayComparisons />
             </div>
-
         </div>
     )
 }
