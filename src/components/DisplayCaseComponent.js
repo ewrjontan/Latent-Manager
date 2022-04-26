@@ -12,6 +12,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import PrintCaseFileTable from "./subComponents/PrintCaseFileTableComponent";
 import TopNavigation from "./subComponents/TopNavigationComponent";
 import LatentTable from "./subComponents/LatentTableQuickComponent";
+import AddPrintCaseFile from "./subComponents/AddPrintCaseFileComponent";
 import Loading from "./LoadingComponent";
 
 function DisplayCase() {
@@ -21,6 +22,7 @@ function DisplayCase() {
     const [incident, setIncident] = useState(null);
     const [loading, setLoading] = useState(true);
     const [printCaseFileCount, setprintCaseFileCount] = useState(0);
+    const [modalShow, setModalShow] = useState(false);
 
     //Used before setting up fetch
     // const { incident } = location.state
@@ -92,9 +94,11 @@ function DisplayCase() {
                     </div>
                 </div>
                 
-                <Button size="lg" className="btn-color">Add Print Case File</Button>
+                <Button size="lg" className="btn-color" onClick={() => setModalShow(true)}>Add Print Case File</Button>
 
                 <LatentTable incident={incident} />
+
+                <AddPrintCaseFile incidentid={incident._id} show={modalShow} onHide={() => setModalShow(false)} />
             </div>
         )
     }

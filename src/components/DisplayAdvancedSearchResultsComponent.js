@@ -51,6 +51,7 @@ function DisplayAdvancedSearchResults() {
         console.log("baseUrl is: ");
         console.log(baseUrl);
         // fetch("http://localhost:3001/incidents")
+        console.log(baseUrl + urlQuery);
         fetch(baseUrl + urlQuery)
         .then(res => res.json())
         .then(result => {

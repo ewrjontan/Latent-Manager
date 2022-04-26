@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function LatentTable(props) {
     let incident = props.incident;
 
-    if (incident.printCaseFiles.length !== 0){
+    if (incident.printCaseFiles.length !== 0 && incident.printCaseFiles.hasLatents){
         return (
             <div className="mt-4">
                 {incident.printCaseFiles.map( (printCaseFile, index) => {
@@ -33,7 +33,7 @@ function LatentTable(props) {
 
                                     {printCaseFile.latents.map( (latent, index) => {     
                                         console.log(latent);    
-
+                                        
                                         return (
                                             <tr key={index}>
                                                 <td>{`EL${latent.elNumber}`}
@@ -57,7 +57,7 @@ function LatentTable(props) {
         )
     }else {
         return (
-            <h5 className="mt-5 text-center">No latents available to display, please add a print case file.</h5>
+            <h5 className="mt-5 text-center">No latents available to display, please add a print case file with latents.</h5>
         )
     }
 }

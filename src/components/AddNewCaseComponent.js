@@ -64,7 +64,7 @@ function AddNewCase() {
         console.log('submit button clicked');
         event.preventDefault();
 
-        let form = document.getElementById("advanced-search-form");
+        let form = document.getElementById("add-new-case-form");
         let formInputs = form.querySelectorAll('input');
         console.log(formInputs);
         
@@ -78,7 +78,8 @@ function AddNewCase() {
         });
 
         if (blankFields === 0) {
-            postToDatabase(state);
+            //postToDatabase(state);
+            console.log(state);
         }
     }
 
@@ -126,7 +127,7 @@ function AddNewCase() {
 
                 <h3 className="my-5 text-center">Please enter your case information.</h3>
 
-                <Form onSubmit={handleSubmit} id="advanced-search-form">
+                <Form onSubmit={handleSubmit} id="add-new-case-form">
                     <div className="row d-flex justify-content-around text-center mb-3">
                         <Form.Group className="col-5" controlId="caseNumber">
                             <Form.Label>Case Number</Form.Label>

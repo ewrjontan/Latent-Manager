@@ -128,3 +128,13 @@ a {
 
 /* Display Latent Info Component */
 
+
+/* Add Print Case file modal */
+.add-print-case-file-modal {
+    color: black;
+    text-align: center;
+}
+
+#add-print-case-file-title {
+    width: 100%;
+}
