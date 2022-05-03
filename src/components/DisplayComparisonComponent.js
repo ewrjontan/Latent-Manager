@@ -86,31 +86,6 @@ function DisplayComparison(props) {
         console.log("edit button clicked");
         setEditComparison(true);
         enableDisableInputs();
-        // let comparisonsContainer = document.getElementById("comparisons-container");
-        
-        // let formInputs = comparisonsContainer.querySelectorAll('input');
-        // let formSelect = comparisonsContainer.querySelectorAll('select');
-        // console.log(formInputs);
-        // console.log(formSelect);
-
-        // formInputs.forEach((input) => {
-        //     if (input.hasAttribute('readOnly')){
-        //         console.log("has read only")
-        //         input.readOnly = false;
-        //     }
-
-        //     if (input.hasAttribute('disabled')){
-        //         console.log("has disabled")
-        //         input.disabled = false;
-        //     }
-        // });
-
-        // formSelect.forEach((select) => {
-        //     if (select.hasAttribute('disabled')){
-        //         console.log("has disabled")
-        //         select.disabled = false;
-        //     }
-        // });
     }
 
     const addImageButtonClick = () => {
