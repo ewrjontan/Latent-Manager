@@ -4,6 +4,7 @@ import { baseUrl } from '../shared/baseUrl';
 import TopNavigation from "./subComponents/TopNavigationComponent";
 import Loading from "./LoadingComponent";
 import {Form, Button} from "react-bootstrap";
+import ConfirmModal from "./subComponents/ConfirmModalComponent";
 
 
 function DisplayLift() {
@@ -11,6 +12,7 @@ function DisplayLift() {
     const location = useLocation()
     const [loading, setLoading] = useState(true);
     const [lift, setLift] = useState(null);
+    const [confirmModalShow, setConfirmModalShow] = useState(null);
 
     const[editLift, setEditLift] = useState(false);
 
@@ -216,7 +218,8 @@ function DisplayLift() {
     }
 
     const deleteButtonClick = () => {
-        console.log("delete buytton clicked")
+        console.log("delete buytton clicked");
+        setConfirmModalShow(true);
     }
 
 
@@ -240,6 +243,7 @@ function DisplayLift() {
         return(
             <div>
                 <TopNavigation />
+                <ConfirmModal passedincidentid={incidentId} passedprintcasefileid={printCaseFileId} passedliftid={lift._id} action="deleteLift" show={confirmModalShow} onHide={() => setConfirmModalShow(false)}/>
                 <div className="d-flex flex-row justify-content-between">
                     <h1 className="my-3">{caseNumber}</h1>
                     <h1 className="my-3">SAFE Item # {safeItemNumber}</h1>

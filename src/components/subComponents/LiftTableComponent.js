@@ -72,7 +72,14 @@ function LiftTable(props) {
         )
     }else {
         return (
-            <h5 className="mt-5 text-center">No lifts available to display. Please add lifts.</h5>
+            <div>
+                <h5 className="mt-5 text-center">No lifts available to display. Please add lifts.</h5>
+                <div className="mt-5 text-center">
+                    <Button size="lg" className="btn-color col-3" onClick={() => setLiftModalShow(true)}>Add Lift</Button>
+                </div>
+                <AddLift passedincidentid={passedIncidentId} passedprintcasefileid={passedPrintCaseFileId} passedcasenumber={passedCaseNumber} passedsafeitemnumber={passedSafeItemNumber} show={liftModalShow} onHide={() => setLiftModalShow(false)} />
+            </div>
+            
         )
     }
 }
