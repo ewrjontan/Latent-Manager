@@ -6,7 +6,7 @@ import Saving from "./SavingOverlayComponent";
 
 
 
-function AddPrintCaseFile(props) {
+function AddLatent(props) {
     const navigate = useNavigate();
 
     const [state, setState] = useState({
@@ -16,6 +16,7 @@ function AddPrintCaseFile(props) {
     });
 
     const [isSaving, setIsSaving] = useState(false);
+
 
     const handleChange = (event) => {
         console.log("change occuring");
@@ -118,7 +119,7 @@ function AddPrintCaseFile(props) {
                 centered
                 backdrop="static"
                 keyboard={false}
-                className="add-modal"
+                className="add-print-case-file-modal"
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="add-print-case-file-title">
@@ -127,7 +128,7 @@ function AddPrintCaseFile(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <h5>Enter the following information.</h5>
-                    <Form className="col-10 mx-auto mt-3 add-modal-form" id="add-print-case-file-form">
+                    <Form className="col-10 mx-auto mt-3" id="add-print-case-file-form">
 
                         <Form.Group as={Row} className="mb-3" controlId="addPCF.safeItemNumber">
                             <Form.Label column sm="4">SAFE Item #</Form.Label>
@@ -161,4 +162,4 @@ function AddPrintCaseFile(props) {
     }
 }
 
-export default AddPrintCaseFile
+export default AddLatent

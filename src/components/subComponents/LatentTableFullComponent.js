@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import React, { Fragment, useState } from 'react';
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
@@ -12,12 +12,21 @@ function LatentTable(props) {
     const [latentCount, setLatentCount] = useState(printCaseFile.latents.length);
 
 
+    const handleAddLatenttClick = () => {
+        console.log("add lift btn clicked");
+    }
 
-    if (latentCount !== 0){
+    if (printCaseFile.hasLatents){
         return (
-            <div className="mt-4">
-                
-                <h3>Latents ({latentCount})</h3>
+            <div className="mt-5">
+
+                <div className="d-flex flex-row justify-content-between">
+                    <h3>Latents ({latentCount})</h3>
+
+                    <div>
+                        <Button size="lg" className="btn-color" onClick={() => handleAddLatenttClick}>Add Latent</Button>
+                    </div>
+                </div>
 
                 <Table striped bordered hover size="sm" className="mt-3 latent-table">
                     <thead>
@@ -34,7 +43,6 @@ function LatentTable(props) {
                     <tbody>
 
                         {printCaseFile.latents.map( (latent, index) => {     
-                            console.log(latent);    
 
                             return (
                                 <tr key={index}>

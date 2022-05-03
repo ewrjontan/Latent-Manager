@@ -5,6 +5,10 @@ import TopNavigation from "./subComponents/TopNavigationComponent";
 
 import LatentTable from "./subComponents/LatentTableFullComponent";
 import LiftTable from "./subComponents/LiftTableComponent";
+import AddLift from "./subComponents/AddLiftComponent";
+import AddLatent from "./subComponents/AddLatentComponent";
+
+
 import Loading from "./LoadingComponent";
 
 
@@ -14,23 +18,22 @@ function DisplayPrintCaseFile() {
     const location = useLocation()
 
     // const { printCaseFile, caseNumber, incidentType } = location.state
-    const { passedIncidentId, passedPrintCaseFileId } = location.state
+    const { passedIncidentId, passedPrintCaseFileId, passedCaseNumber } = location.state
 
     console.log("on display printCaseFile page");
-    console.log(location.state);
 
     const [loading, setLoading] = useState(true);
     const [printCaseFile, setPrintCaseFile] = useState(null);
 
+    const [latentModalShow, setLatentModalShow] = useState(false);
+
 
     const fetchPrintCaseFile = () => {
-        console.log(baseUrl);
         // fetch("http://localhost:3001/incidents")
         fetch(baseUrl + "/" + passedIncidentId + "/printCaseFiles/" + passedPrintCaseFileId)
         .then(res => res.json())
         .then(result => {
             setPrintCaseFile(result);
-                console.log(result);
         })
         .then( () => {
             setLoading(false);
@@ -40,7 +43,6 @@ function DisplayPrintCaseFile() {
     }
 
     useEffect(() => {
-        console.log(passedPrintCaseFileId)
         fetchPrintCaseFile();
     }, []);
 
@@ -50,15 +52,23 @@ function DisplayPrintCaseFile() {
         return (
             <div>
                 <TopNavigation/>
-                <h1 className="my-3">SAFE Item # {printCaseFile.safeItemNumber} {printCaseFile.complete? "(Completed)" : ""}</h1>
+                <div className="d-flex flex-row justify-content-between">
+                    <h1 className="my-3">{passedCaseNumber}</h1>
+                    <h1 className="my-3">SAFE Item # {printCaseFile.safeItemNumber} {printCaseFile.complete? "(Completed)" : ""}</h1>
+                </div>
+                
 
                 <div>
                     <p><strong>Date Started: </strong>{printCaseFile.dateStarted}</p>
                     <p><strong>Started By: </strong>{printCaseFile.technician}</p>
                 </div>
 
-                {/* <LatentTable printCaseFile={printCaseFile} caseNumber={caseNumber} incidentType={incidentType}/>
-                <LiftTable printCaseFile={printCaseFile} caseNumber={caseNumber} incidentType={incidentType}/> */}
+                <LiftTable printCaseFile={printCaseFile} passedIncidentId={passedIncidentId} passedPrintCaseFileId={passedPrintCaseFileId} passedCaseNumber={passedCaseNumber} passedSafeItemNumber={printCaseFile.safeItemNumber}/>
+                {/* <AddLift passedIncidentid={passedIncidentId} passedPrintCaseFileId={passedPrintCaseFileId} show={liftModalShow} onHide={() => setLiftModalShow(false)} /> */}
+
+
+                <LatentTable printCaseFile={printCaseFile}/>
+                <AddLatent passedIncidentid={passedIncidentId} passedPrintCaseFileId={passedPrintCaseFileId} show={latentModalShow} onHide={() => setLatentModalShow(false)} />
 
             </div>
         )

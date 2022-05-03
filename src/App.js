@@ -4,6 +4,7 @@ import AddNewCase from "./components/AddNewCaseComponent";
 import RecentCases from "./components/RecentCasesComponent";
 import DisplayCase from "./components/DisplayCaseComponent";
 import DisplayLatent from "./components/DisplayLatentComponent";
+import DisplayLift from "./components/DisplayLiftComponent";
 import DisplayPrintCaseFile from "./components/DisplayPrintCaseFileComponent";
 import DisplayBasicSearchResults from "./components/DisplayBasicSearchResultsComponent";
 import DisplayAdvancedSearchResults from "./components/DisplayAdvancedSearchResultsComponent";
@@ -52,6 +53,7 @@ function App() {
                     <Route path="recent-cases" element={<RecentCases />} />
                     <Route path="display-case" element={<DisplayCase />} />
                     <Route path="display-latent" element={<DisplayLatent />} />
+                    <Route path="display-lift" element={<DisplayLift />} />
                     <Route path="display-print-case-file" element={<DisplayPrintCaseFile />} />
                     <Route path="display-basic-search-results" element={<DisplayBasicSearchResults />} />
                     <Route path="display-advanced-search-results" element={<DisplayAdvancedSearchResults />} />

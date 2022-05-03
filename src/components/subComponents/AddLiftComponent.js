@@ -6,13 +6,19 @@ import Saving from "./SavingOverlayComponent";
 
 
 
-function AddPrintCaseFile(props) {
+function AddLift(props) {
     const navigate = useNavigate();
 
+    console.log("add lifts page");
+
+    const { passedincidentid, passedprintcasefileid, passedcasenumber, passedsafeitemnumber } = props
+
     const [state, setState] = useState({
-        "safeItemNumber": "",
-        "technician": "",
-        "dateStarted": ""
+        "liftNumber": "",
+        "developedBy": "",
+        "dateFound": "",
+        "locationFound": "",
+        "surface": ""
     });
 
     const [isSaving, setIsSaving] = useState(false);
@@ -26,7 +32,7 @@ function AddPrintCaseFile(props) {
         console.log("event name:");
         console.log(name);
 
-        if (name === "technician"){
+        if (name === "developedBy"){
             setState({
                 ...state,
                 [name]: value.toUpperCase()
@@ -39,20 +45,12 @@ function AddPrintCaseFile(props) {
         }
     }
 
-    // const handleKeyDown = (event) => {
-    //     if (event.key === 'Enter') {
-    //         event.preventDefault();
-    //         console.log('enter key pressed')
-    //         //navigate("/display-basic-search-results", {state: {searchInput: searchInput.toUpperCase()}});
-    //     }
-    // }
-
     const handleSubmit = (event) => {
         console.log(props.incidentid);
         console.log('submit button clicked');
         event.preventDefault();
 
-        let form = document.getElementById("add-print-case-file-form");
+        let form = document.getElementById("add-lift-form");
         let formInputs = form.querySelectorAll('input');
         console.log(formInputs);
         
@@ -76,7 +74,7 @@ function AddPrintCaseFile(props) {
         setIsSaving(true);
 
         // fetch("http://localhost:3001/incidents")
-        fetch(baseUrl + "/" + props.incidentid + "/printCaseFiles", {
+        fetch(baseUrl + "/" + passedincidentid + "/printCaseFiles/" + passedprintcasefileid + "/lifts", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -85,14 +83,17 @@ function AddPrintCaseFile(props) {
         })
         .then(res => res.json())
         .then(result => {
-                console.log("from addpcf modal result");
+                console.log("from addLift modal result");
                 console.log(result);
                 //setIncidents(result);
                 navigate(
-                    "/display-print-case-file", 
+                    "/display-lift", 
                     {state: {
-                        passedIncidentId: props.incidentid,
-                        passedPrintCaseFileId: result._id
+                        incidentId: passedincidentid,
+                        printCaseFileId: passedprintcasefileid,
+                        liftId: result._id,
+                        caseNumber: passedcasenumber,
+                        safeItemNumber: passedsafeitemnumber
                     }
                 });
                 
@@ -114,39 +115,53 @@ function AddPrintCaseFile(props) {
         return(
             <Modal
                 {...props}
-                aria-labelledby="add-print-case-file-title "
+                aria-labelledby="add-lift-title "
                 centered
                 backdrop="static"
                 keyboard={false}
                 className="add-modal"
             >
                 <Modal.Header closeButton>
-                    <Modal.Title id="add-print-case-file-title">
-                    Adding Print Case File
+                    <Modal.Title id="add-lift-modal-title">
+                    Adding Lift
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <h5>Enter the following information.</h5>
-                    <Form className="col-10 mx-auto mt-3 add-modal-form" id="add-print-case-file-form">
+                    <Form className="col-10 mx-auto mt-3 add-modal-form" id="add-lift-form">
 
-                        <Form.Group as={Row} className="mb-3" controlId="addPCF.safeItemNumber">
-                            <Form.Label column sm="4">SAFE Item #</Form.Label>
+                        <Form.Group as={Row} className="mb-3" controlId="addLift.liftNumber">
+                            <Form.Label column sm="4">Lift #</Form.Label>
                             <Col sm="8">
-                                <Form.Control type="number" min="1" name="safeItemNumber" placeholder="SAFE Item #" onChange={handleChange} value={state.safeItemNumber}/>
+                                <Form.Control type="number" min="1" name="liftNumber" placeholder="Lift #" onChange={handleChange} value={state.liftNumber}/>
                             </Col>
                         </Form.Group>
 
-                        <Form.Group as={Row} className="mb-3" controlId="addPCF.technician">
-                            <Form.Label column sm="4">Technician</Form.Label>
+                        <Form.Group as={Row} className="mb-3" controlId="addLift.developedBy">
+                            <Form.Label column sm="4">Developed By</Form.Label>
                             <Col sm="8">
-                                <Form.Control type="text" name="technician" placeholder="Technician" onChange={handleChange} value={state.technician}/>
+                                <Form.Control type="text" name="developedBy" placeholder="Developed By" onChange={handleChange} value={state.developedBy}/>
                             </Col>
                         </Form.Group>
 
-                        <Form.Group as={Row} className="mb-3" controlId="addPCF.dateStarted">
-                            <Form.Label column sm="4">Date Started</Form.Label>
+                        <Form.Group as={Row} className="mb-3" controlId="addLift.dateFound">
+                            <Form.Label column sm="4">Date Found</Form.Label>
                             <Col sm="8">
-                                <Form.Control type="date" name="dateStarted" onChange={handleChange} value={state.dateStarted}/>
+                                <Form.Control type="date" name="dateFound" onChange={handleChange} value={state.dateFound}/>
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Row} className="mb-3" controlId="addLift.locationFound">
+                            <Form.Label column sm="4">Location Found</Form.Label>
+                            <Col sm="8">
+                                <Form.Control type="text" name="locationFound" placeholder="Location Found" onChange={handleChange} value={state.locationFound}/>
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Row} className="mb-3" controlId="addLift.surface">
+                            <Form.Label column sm="4">Surface</Form.Label>
+                            <Col sm="8">
+                                <Form.Control type="text" name="surface" placeholder="Surface" onChange={handleChange} value={state.surface}/>
                             </Col>
                         </Form.Group>
                     </Form>
@@ -161,4 +176,4 @@ function AddPrintCaseFile(props) {
     }
 }
 
-export default AddPrintCaseFile
+export default AddLift

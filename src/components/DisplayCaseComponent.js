@@ -38,13 +38,11 @@ function DisplayCase() {
     const { passedIncidentId } = location.state;
 
     const fetchIncident = (incidentId) => {
-        console.log(baseUrl + "/" + incidentId);
         // fetch("http://localhost:3001/incidents")
         fetch(baseUrl + "/" + incidentId)
         .then(res => res.json())
         .then(result => {
             setIncident(result);
-            console.log(result);
             if (result.printCaseFiles.length !== 0) {
                 setprintCaseFileCount(result.printCaseFiles.length);
             }
@@ -90,7 +88,8 @@ function DisplayCase() {
                     <div className="col-6">
                         <h1 className="my-3 text-center">Print Case Files ({printCaseFileCount})</h1>
                         
-                        <PrintCaseFileTable printCaseFiles={incident.printCaseFiles} caseNumber={incident.caseNumber} incidentType={incident.incidentType}/>
+                        {/* <PrintCaseFileTable printCaseFiles={incident.printCaseFiles} caseNumber={incident.caseNumber} incidentType={incident.incidentType}/> */}
+                        <PrintCaseFileTable printCaseFiles={incident.printCaseFiles} passedIncidentId={incident._id} passedCaseNumber={incident.caseNumber} />
                     </div>
                 </div>
                 

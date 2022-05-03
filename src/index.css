@@ -79,6 +79,18 @@ a {
     border-bottom-left-radius: 0;
 }
 
+
+/*Shared modal styling*/
+.add-modal {
+    color: black;
+    text-align: center;
+}
+
+.add-modal-form{
+    text-align: left;
+}
+
+
 /* input:active {
     border: 2px solid yellow;
 } */
@@ -130,11 +142,21 @@ a {
 
 
 /* Add Print Case file modal */
-.add-print-case-file-modal {
-    color: black;
-    text-align: center;
-}
-
 #add-print-case-file-title {
     width: 100%;
+}
+
+
+/* Add lift modal */
+#add-lift-modal-title {
+    width: 100%;
+}
+
+/* display lift */
+
+.lift-image-container{
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    border: 1px solid gray;
 }
