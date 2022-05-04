@@ -5,6 +5,8 @@ import TopNavigation from "./subComponents/TopNavigationComponent";
 import Loading from "./LoadingComponent";
 import {Form, Button} from "react-bootstrap";
 import ConfirmModal from "./subComponents/ConfirmModalComponent";
+import UploadImageModal from "./subComponents/UploadImageModalComponent";
+
 
 
 function DisplayLift() {
@@ -13,6 +15,7 @@ function DisplayLift() {
     const [loading, setLoading] = useState(true);
     const [lift, setLift] = useState(null);
     const [confirmModalShow, setConfirmModalShow] = useState(null);
+    const [uploadImageModalShow, setUploadImageModalShow] = useState(null);
 
     const[editLift, setEditLift] = useState(false);
 
@@ -45,8 +48,6 @@ function DisplayLift() {
         "thirdValuer": "",
         "value": ""
     });
-
-
 
 
     console.log("displayLift Page");
@@ -160,9 +161,7 @@ function DisplayLift() {
         enableDisableInputs();
     }
 
-    const addImageButtonClick = () => {
-        console.log("add button clicked");
-    }
+
 
     const viewImageButtonClick = () => {
         console.log("view button clicked");
@@ -222,6 +221,11 @@ function DisplayLift() {
         setConfirmModalShow(true);
     }
 
+    const addImageButtonClick = () => {
+        console.log("add image buytton clicked");
+        setUploadImageModalShow(true);
+    }
+
 
 
     const EditCancelButton = () => {
@@ -243,7 +247,11 @@ function DisplayLift() {
         return(
             <div>
                 <TopNavigation />
+
                 <ConfirmModal passedincidentid={incidentId} passedprintcasefileid={printCaseFileId} passedliftid={lift._id} action="deleteLift" show={confirmModalShow} onHide={() => setConfirmModalShow(false)}/>
+
+                <UploadImageModal show={uploadImageModalShow} onHide={() => setUploadImageModalShow(false)} passedincidentid={incidentId} passedprintcasefileid={printCaseFileId} passedliftid={lift._id}/>
+
                 <div className="d-flex flex-row justify-content-between">
                     <h1 className="my-3">{caseNumber}</h1>
                     <h1 className="my-3">SAFE Item # {safeItemNumber}</h1>
@@ -323,9 +331,9 @@ function DisplayLift() {
 
                         <Button className="btn-color col-2" variant="secondary" disabled={editLift} onClick={() => deleteButtonClick()}>Delete</Button>
 
-                        <Button className="btn-color col-2" variant="secondary" disabled={editLift} onClick={() => addImageButtonClick()}>Add Comparison Image</Button>
+                        <Button className="btn-color col-2" variant="secondary" disabled={editLift} onClick={() => addImageButtonClick()}>Add Lift Image</Button>
 
-                        <Button className="btn-color col-2" variant="secondary" disabled={editLift} onClick={() => viewImageButtonClick()}>View Comparison Image</Button>
+                        <Button className="btn-color col-2" variant="secondary" disabled={editLift} onClick={() => viewImageButtonClick()}>View Lift Image</Button>
 
                         <EditCancelButton/>
 

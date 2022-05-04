@@ -41,10 +41,10 @@ function LiftTable(props) {
                         <tr>
                             <th>Lift #</th>
                             <th>Latent #</th>
-                            <th>Status</th>
-                            <th>Value</th>
                             <th>Date</th>
                             <th>Developed By</th>
+                            <th>Status</th>
+                            <th>Value</th>
                         </tr>
                     </thead>
 
@@ -58,10 +58,11 @@ function LiftTable(props) {
                                         {/* <Link className="view-latent-button" to="/display-latent"><FontAwesomeIcon icon={faCirclePlus} /></Link> */}
                                     </td>
                                     <td>{(lift.elNumber ? `EL${lift.elNumber}`: "N/A") }</td>
-                                    <td>{(lift.needsValuation ? "Awaiting valuation": "Complete")}</td>
-                                    <td>{(lift.value ? "Value": "No Value")}</td>
                                     <td>{lift.dateFound}</td>
                                     <td>{lift.developedBy}</td>
+                                    <td>{(lift.needsValuation ? "Awaiting valuation": "Complete")}</td>
+                                    <td>{(lift.value ? "Value": "No Value")}</td>
+                                    
                                 </tr>
                             )
                         })}               
