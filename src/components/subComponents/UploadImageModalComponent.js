@@ -29,25 +29,26 @@ function ConfirmModal(props) {
         console.log('submit button clicked');
         console.log(uploadedImage);
 
-        let formData = new FormData();
+        // let formData = new FormData();
 
-        formData.append(
-            "myFile",
-            uploadedImage,
-            uploadedImage.name
-          );
+        // formData.append(
+        //     "myFile",
+        //     uploadedImage,
+        //     uploadedImage.name
+        //   );
 
-        console.log("my form data");
-        console.log(formData);
+        // console.log("my form data");
+        // console.log(formData);
 
-        //setIsSaving(true);
+        setIsSaving(true);
 
-        // fetch("http://localhost:3001/incidents")
-        // fetch(baseUrl + "/" + data.passedincidentid + "/printCaseFiles/" + data.passedprintcasefileid + "/lifts/" + data.passedliftid, {
-        //     method: 'DELETE',
+        //fetch("http://localhost:3001/incidents")
+        // fetch(baseUrl + "/" + data.passedincidentid + "/printCaseFiles/" + data.passedprintcasefileid + "/lifts/" + data.passedliftid + "/upload", {
+        //     method: 'POST',
         //     headers: {
         //       'Content-Type': 'application/json',
-        //     }
+        //     },
+        //     body: {}
         // })
         // .then( () => {
         //     console.log("deleting lift");

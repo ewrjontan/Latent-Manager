@@ -78,7 +78,7 @@ function AddNewCase() {
         });
 
         if (blankFields === 0) {
-            //postToDatabase(state);
+            postToDatabase(state);
             console.log(state);
         }
     }
